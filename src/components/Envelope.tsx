@@ -4,7 +4,7 @@ import { Sparkles, Heart } from 'lucide-react';
 import { WeddingRingsSvg, IslamicMandala } from './Ornaments';
 
 const GoldenLeafCorner = ({ className, sizeClasses = "w-20 h-32 sm:w-24 sm:h-40 md:w-32 md:h-52" }: { className?: string; sizeClasses?: string }) => (
-  <svg className={`absolute pointer-events-none z-40 filter drop-shadow-[0_4px_10px_rgba(184,141,47,0.25)] ${sizeClasses} ${className}`} viewBox="0 0 100 160" fill="none">
+  <svg className={`absolute pointer-events-none z-40 ${sizeClasses} ${className}`} viewBox="0 0 100 160" fill="none">
     <defs>
       <linearGradient id="gold-grad-door" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="#fffbf0" />
@@ -187,7 +187,6 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
       {/* Sized perfectly to look incredibly high-end and luxurious on all phones */}
       <div 
         className="relative w-[78vw] max-w-[420px] aspect-[1.48/1] my-auto z-20 cursor-pointer group" 
-        style={{ perspective: '2000px' }}
         onClick={handleOpenClick}
       >
         {/* Soft elegant radial glow behind the envelope */}
@@ -198,9 +197,8 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             <motion.div
               exit={{ scale: 1.15, opacity: 0, y: -25 }}
               transition={{ duration: 1.0, ease: 'easeInOut' }}
-              className="relative w-full h-full"
-              style={{ transformStyle: 'preserve-3d' }}
-              whileHover={!isOpen ? { scale: 1.03, y: -2 } : {}}
+              className="relative w-full h-full transform-gpu"
+              style={{ willChange: 'transform' }}
             >
               {/* Exquisite hand-drawn Golden Leaf Corners accentuating the top corners */}
               <GoldenLeafCorner className="top-1 right-1" sizeClasses="w-16 h-26 sm:w-20 sm:h-32 md:w-22 md:h-35" />
@@ -215,20 +213,16 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                 </div>
               </div>
 
-              {/* Double-sided folding Top Flap in luxurious matte nude with fine-line gold design */}
+              {/* Folding Top Flap: Optimized to use ultra-smooth 2D scaleY folding to avoid mobile WebKit 3D rendering bugs */}
               <motion.div
-                initial={{ rotateX: 0 }}
-                animate={isOpen ? { rotateX: -180, zIndex: 5 } : { rotateX: 0, zIndex: 25 }}
-                transition={{ 
-                  rotateX: { delay: 0.1, duration: 1.0, ease: 'easeInOut' },
-                  zIndex: { delay: 0.5, duration: 0 }
-                }}
-                style={{ transformOrigin: 'top center', transformStyle: 'preserve-3d' }}
-                className="absolute top-0 inset-x-0 h-[50%] pointer-events-none"
+                initial={{ scaleY: 1 }}
+                animate={isOpen ? { scaleY: -1 } : { scaleY: 1 }}
+                transition={{ duration: 1.0, ease: 'easeInOut' }}
+                style={{ transformOrigin: 'top center', willChange: 'transform', zIndex: isOpen ? 5 : 25 }}
+                className="absolute top-0 inset-x-0 h-[50%] pointer-events-none transform-gpu"
               >
-                {/* Flap Exterior (visible when closed) */}
-                <div className="absolute inset-0" style={{ backfaceVisibility: 'hidden' }}>
-                  <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="w-full h-full filter drop-shadow-[0_6px_10px_rgba(0,0,0,0.08)]">
+                <div className="absolute inset-0">
+                  <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="w-full h-full">
                     {/* Main solid flap shape: Matte Nude Cashmere */}
                     <path
                       d="M 0,0 L 50,42 L 100,0 Z"
@@ -245,8 +239,15 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                       strokeWidth="0.35"
                     />
 
-                    {/* Intricate Royal Heart Crest design on the Top Flap */}
-                    <g transform="translate(50, 18) scale(0.15)" stroke="url(#luxeGoldGrad)" strokeWidth="1.2" fill="none">
+                    {/* Intricate Royal Heart Crest design on the Top Flap: Fades out beautifully during folding */}
+                    <motion.g 
+                      animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      transform="translate(50, 18) scale(0.15)" 
+                      stroke="url(#luxeGoldGrad)" 
+                      strokeWidth="1.2" 
+                      fill="none"
+                    >
                       {/* Left side swirly heart path */}
                       <path d="M -14,-2 C -18,-5 -21,-5 -21,-9 C -21,-14 -17,-16 -14,-20 C -11,-16 -7,-14 -7,-9 C -7,-5 -10,-5 -14,-2 Z" fill="url(#luxeGoldLight)" fillOpacity="0.25" />
                       
@@ -263,37 +264,17 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                       <circle cx="-14" cy="-24" r="1.2" fill="url(#luxeGoldGrad)" />
                       <circle cx="14" cy="-24" r="1.2" fill="url(#luxeGoldGrad)" />
                       <circle cx="0" cy="-23" r="1.5" fill="url(#luxeGoldGrad)" />
-                    </g>
+                    </motion.g>
 
                     {/* Minimal seal point embellishment */}
                     <circle cx="50" cy="35" r="1.0" fill="url(#luxeGoldGrad)" />
-                  </svg>
-                </div>
-
-                {/* Flap Interior (visible when fully flipped backwards) */}
-                <div className="absolute inset-0" style={{ transform: 'rotateX(180deg)', backfaceVisibility: 'hidden' }}>
-                  <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="w-full h-full">
-                    {/* Warm sand interior flap */}
-                    <path
-                      d="M 0,0 L 50,42 L 100,0 Z"
-                      fill="#e2d0ba"
-                      stroke="#dcc8b1"
-                      strokeWidth="0.3"
-                    />
-                    {/* Delicate interior outline */}
-                    <path
-                      d="M 3,0 L 50,39 L 97,0"
-                      fill="none"
-                      stroke="url(#luxeGoldLight)"
-                      strokeWidth="0.25"
-                    />
                   </svg>
                 </div>
               </motion.div>
 
               {/* Front static Pocket constructed with elegant matte nude flaps and thin gold accents */}
               <div className="absolute inset-0 z-20 pointer-events-none">
-                <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="w-full h-full filter drop-shadow-[0_-4px_10px_rgba(0,0,0,0.03)]">
+                <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="w-full h-full">
                   {/* Left Diagonal Flap: Matte Nude */}
                   <path
                     d="M 0,0 L 50,25 L 0,50 Z"
@@ -395,9 +376,10 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
               {/* Real 3D-Look Perfectly Rounded Elegant Matte Beige & Gold Monogram Seal Button - Optimized to remove all lag */}
               <motion.div
                 initial={{ scale: 1, opacity: 1, y: 0 }}
-                animate={isOpen ? { scale: [1, 1.15, 0], opacity: [1, 1, 0], y: 15 } : { scale: 1, opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, ease: 'easeInOut' }}
-                className="absolute top-[46%] left-[50%] -translate-x-[50%] -translate-y-[46%] z-30 flex items-center justify-center"
+                animate={isOpen ? { scale: 0, opacity: 0, y: 15 } : { scale: 1, opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: 'easeIn' }}
+                style={{ willChange: 'transform, opacity' }}
+                className="absolute top-[46%] left-[50%] -translate-x-[50%] -translate-y-[46%] z-30 flex items-center justify-center transform-gpu"
               >
                 {/* Decorative rotating outer gold ring */}
                 <div 
@@ -416,11 +398,11 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                   whileHover={{ scale: 1.08, y: -1 }}
                   whileTap={{ scale: 0.94 }}
                   onClick={handleOpenClick}
-                  className="relative w-22 h-22 sm:w-24 sm:h-24 flex items-center justify-center pointer-events-auto group z-30 cursor-pointer focus:outline-none"
+                  className="relative w-22 h-22 sm:w-24 sm:h-24 flex items-center justify-center pointer-events-auto group z-30 cursor-pointer focus:outline-none shadow-[0_12px_28px_rgba(40,0,2,0.45)] rounded-full bg-transparent transform-gpu"
                   aria-label="Ouvrir l'invitation"
                 >
-                  {/* Organic Poured Wax Shape Background with deep red-toned drop-shadow */}
-                  <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full drop-shadow-[0_12px_24px_rgba(40,0,2,0.6)] transition-transform duration-500 group-hover:scale-105">
+                  {/* Organic Poured Wax Shape Background */}
+                  <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105">
                     
                     {/* Outer hand-melted pool of rich marone wax */}
                     <path 
@@ -443,7 +425,15 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                       fill="url(#waxMaroneDark)"
                       stroke="url(#luxeGoldGrad)"
                       strokeWidth="1.2"
-                      className="filter drop-shadow-[inset_0_4px_6px_rgba(0,0,0,0.75)]"
+                    />
+                    <circle 
+                      cx="50" 
+                      cy="48" 
+                      r="31.5" 
+                      fill="none"
+                      stroke="#000000"
+                      strokeWidth="1.5"
+                      opacity="0.35"
                     />
                     
                     {/* Inner gold circular ornament */}
