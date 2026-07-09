@@ -27,7 +27,6 @@ export const Countdown: React.FC = () => {
   };
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
-  const [chronoBg, setChronoBg] = useState('/chrono_bg.jpg');
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -45,21 +44,7 @@ export const Countdown: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-xl mx-auto py-10 px-6 text-center relative rounded-3xl overflow-hidden bg-stone-100/10 backdrop-blur-[2px] border-[3px] border-double border-gold-400 shadow-[0_20px_50px_rgba(184,141,47,0.25)]">
-      {/* Background image for the chrono frame, styled in its full natural colors */}
-      <img
-        src={chronoBg}
-        alt="Chrono Background"
-        referrerPolicy="no-referrer"
-        onError={() => {
-          setChronoBg('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80');
-        }}
-        className="absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none"
-      />
-
-      {/* Subtle protective overlay that preserves natural colors while ensuring text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff]/35 via-transparent to-[#ffffff]/45 pointer-events-none" />
-
+    <div className="w-full max-w-xl mx-auto py-10 px-6 text-center relative rounded-3xl overflow-hidden bg-white/92 backdrop-blur-md border-[3px] border-double border-gold-400 shadow-[0_20px_50px_rgba(184,141,47,0.25)]">
       {/* Decorative Traditional Corner Frames inside the Chrono */}
       <div className="absolute top-1 left-1 w-6 h-6 border-t border-l border-gold-400 opacity-60" />
       <div className="absolute top-1 right-1 w-6 h-6 border-t border-r border-gold-400 opacity-60" />
