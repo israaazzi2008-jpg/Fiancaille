@@ -23,7 +23,7 @@ export default function App() {
 
   // Reference images from the public folder for easy user replacement and customization
   const ringsImageUrl = '/engagement_rings.jpg';
-  const sanctuaryBackdropImg = '/luxury_sanctuary_backdrop.png';
+  const sanctuaryBackdropImg = '/luxury_sanctuary_backdro.png';
 
   return (
     <div className={`min-h-screen text-nude-900 relative selection:bg-gold-200 selection:text-gold-900 transition-colors duration-1000 ${isOpened ? 'bg-transparent overflow-y-auto scroll-smooth' : 'bg-nude-50 overflow-hidden'}`}>
