@@ -23,7 +23,7 @@ export default function App() {
 
   // Reference images from the public folder for easy user replacement and customization
   const ringsImageUrl = '/engagement_rings.jpg';
-  const sanctuaryBackdropImg = '/luxury_sanctuary_backdrop.jpg';
+  const sanctuaryBackdropImg = '/luxury_sanctuary_backdrop.png';
 
   return (
     <div className={`min-h-screen text-nude-900 relative selection:bg-gold-200 selection:text-gold-900 transition-colors duration-1000 ${isOpened ? 'bg-transparent overflow-y-auto scroll-smooth' : 'bg-nude-50 overflow-hidden'}`}>
@@ -38,19 +38,24 @@ export default function App() {
           transition={{ duration: 1.5, ease: 'easeOut' }}
           className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-gradient-to-b from-[#faf8f6] via-[#f4efe9] to-[#e8decb]"
         >
-          {/* Elegant simple background image with soft opacity and high brightness for an extremely soft luxury aesthetic */}
+          {/* Elegant simple background image with soft opacity and natural color reproduction, optimized for phones */}
           <img 
             src={sanctuaryBackdropImg} 
             alt="Scenic Sanctuary Backdrop" 
             referrerPolicy="no-referrer"
             onError={(e) => {
-              // Fallback to a breathtaking Moroccan luxury palace view at golden hour
-              e.currentTarget.src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80";
+              const img = e.currentTarget;
+              const currentSrc = img.getAttribute('src') || '';
+              if (currentSrc.endsWith('.png')) {
+                img.src = '/luxury_sanctuary_backdrop.jpg';
+              } else if (currentSrc.endsWith('.jpg')) {
+                img.src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80";
+              }
             }}
-            className="w-full h-full object-cover opacity-[0.65] filter brightness-[1.05] contrast-[1.0] saturate-[0.95]"
+            className="w-full h-full object-cover opacity-85 sm:opacity-90 filter brightness-100 contrast-100 saturate-100"
           />
           {/* Subtle light protective overlay to guarantee superb readability and phone optimization */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#faf8f6]/40 via-[#f4efe9]/30 to-[#e8decb]/45" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#faf8f6]/30 via-[#f4efe9]/20 to-[#e8decb]/35" />
           {/* Subtle elegant line overlays to add sophisticated texture */}
           <div className="absolute inset-0 bg-fine-lines opacity-[0.05]" />
           <div className="absolute inset-0 bg-islamic-pattern opacity-[0.015]" />
