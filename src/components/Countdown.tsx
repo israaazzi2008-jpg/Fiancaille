@@ -27,6 +27,7 @@ export const Countdown: React.FC = () => {
   };
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [chronoBg, setChronoBg] = useState('/chrono_bg.jpg');
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -47,11 +48,15 @@ export const Countdown: React.FC = () => {
     <div className="w-full max-w-xl mx-auto py-10 px-6 text-center relative rounded-3xl overflow-hidden bg-white/85 backdrop-blur-sm border-[3px] border-double border-gold-400 shadow-[0_20px_50px_rgba(184,141,47,0.25)]">
       {/* Background image for the chrono frame, styled to be very bright, soft, and clear */}
       <img
-        src="/chrono_bg.jpg"
+        src={chronoBg}
         alt="Chrono Background"
         referrerPolicy="no-referrer"
-        onError={(e) => {
-          e.currentTarget.style.display = 'none';
+        onError={() => {
+          if (chronoBg === '/chrono_bg.jpg') {
+            setChronoBg('/luxury_sanctuary_backdrop.jpg');
+          } else if (chronoBg === '/chrono_bg.jpg') {
+            setChronoBg('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80');
+          }
         }}
         className="absolute inset-0 w-full h-full object-cover opacity-[0.32] filter brightness-[1.4] contrast-[0.9] saturate-[0.85] pointer-events-none"
       />
