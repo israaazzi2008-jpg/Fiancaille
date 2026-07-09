@@ -43,10 +43,14 @@ export default function App() {
             src={sanctuaryBackdropImg} 
             alt="Scenic Sanctuary Backdrop" 
             referrerPolicy="no-referrer"
-            className="w-full h-full object-cover opacity-[0.24] filter brightness-[1.12] contrast-[0.95] saturate-[0.9]"
+            onError={(e) => {
+              // Fallback to a breathtaking Moroccan luxury palace view at golden hour
+              e.currentTarget.src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80";
+            }}
+            className="w-full h-full object-cover opacity-[0.65] filter brightness-[1.05] contrast-[1.0] saturate-[0.95]"
           />
           {/* Subtle light protective overlay to guarantee superb readability and phone optimization */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#faf8f6]/75 via-[#f4efe9]/70 to-[#e8decb]/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#faf8f6]/40 via-[#f4efe9]/30 to-[#e8decb]/45" />
           {/* Subtle elegant line overlays to add sophisticated texture */}
           <div className="absolute inset-0 bg-fine-lines opacity-[0.05]" />
           <div className="absolute inset-0 bg-islamic-pattern opacity-[0.015]" />
@@ -208,6 +212,10 @@ export default function App() {
                       src={ringsImageUrl}
                       alt="Alliances en Or d'Oumaima & Hakim"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        // Fallback to a breathtaking high-res photo of luxury gold wedding alliances
+                        e.currentTarget.src = "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80";
+                      }}
                       className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-700"
                     />
                     
