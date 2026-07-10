@@ -20,7 +20,7 @@ export const GoldGradientDefs: React.FC = () => (
   </svg>
 );
 
-// Traditional Islamic Arch Border / Frame - Redesigned as an elegant oval cadre
+// Traditional Islamic Arch Border / Frame - Redesigned as an elegant card
 export const IslamicArchFrame: React.FC<{ children: React.ReactNode; id?: string; bgImage?: string }> = ({ children, id }) => {
   return (
     <div id={id} className="relative py-14 px-8 sm:px-12 md:px-14 rounded-[80px_160px] md:rounded-[110px_220px] overflow-hidden bg-[#FAF7F2] border-[4px] border-double border-gold-500/80 shadow-[0_25px_60px_rgba(184,141,47,0.25)] max-w-xl mx-auto">
@@ -264,9 +264,9 @@ export const FloralDivider: React.FC<{ className?: string }> = ({ className = 'w
 // Traditional corners
 export const CornerPattern: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <svg className={`${className} text-gold-500/30`} viewBox="0 0 100 100" fill="none">
+    <svg className={`${className} text-gold-500/80`} viewBox="0 0 100 100" fill="none">
       <path d="M 0,0 L 100,0 C 80,10 60,30 50,50 C 40,60 30,80 0,100 L 0,0 Z" fill="currentColor" />
-      <path d="M 10,10 Q 50,20 40,60 Q 20,50 10,10" fill="url(#gold)" opacity="0.6" />
+      <path d="M 10,10 Q 50,20 40,60 Q 20,50 10,10" fill="url(#gold)" opacity="0.95" />
       <circle cx="25" cy="25" r="3" fill="url(#gold-light)" />
     </svg>
   );
