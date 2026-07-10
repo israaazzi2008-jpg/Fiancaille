@@ -261,13 +261,19 @@ export const FloralDivider: React.FC<{ className?: string }> = ({ className = 'w
   );
 };
 
-// Traditional corners
+// Traditional corners - Just a simple soft radial shadow in the corner with no shapes
 export const CornerPattern: React.FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <svg className={`${className} text-gold-500/80`} viewBox="0 0 100 100" fill="none">
-      <path d="M 0,0 L 100,0 C 80,10 60,30 50,50 C 40,60 30,80 0,100 L 0,0 Z" fill="currentColor" />
-      <path d="M 10,10 Q 50,20 40,60 Q 20,50 10,10" fill="url(#gold)" opacity="0.95" />
-      <circle cx="25" cy="25" r="3" fill="url(#gold-light)" />
+    <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="corner-shadow" cx="0%" cy="0%" r="100%">
+          <stop offset="0%" stopColor="#4e3b16" stopOpacity="0.8" />
+          <stop offset="40%" stopColor="#695123" stopOpacity="0.5" />
+          <stop offset="75%" stopColor="#8d713a" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#8d713a" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <rect width="100" height="100" fill="url(#corner-shadow)" />
     </svg>
   );
 };
