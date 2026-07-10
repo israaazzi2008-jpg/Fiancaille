@@ -47,7 +47,7 @@ export default function App() {
               const img = e.currentTarget;
               const currentSrc = img.getAttribute('src') || '';
               if (currentSrc.endsWith('.png')) {
-                img.src = '/luxury_sanctuary_backdrop.jpg';
+                img.src = '/luxury_sanctuary_backdro.jpg';
               } else if (currentSrc.endsWith('.jpg')) {
                 img.src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80";
               }
@@ -58,7 +58,6 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#faf8f6]/30 via-[#f4efe9]/20 to-[#e8decb]/35" />
           {/* Subtle elegant line overlays to add sophisticated texture */}
           <div className="absolute inset-0 bg-fine-lines opacity-[0.05]" />
-          <div className="absolute inset-0 bg-islamic-pattern opacity-[0.015]" />
         </motion.div>
       )}
 
@@ -110,10 +109,10 @@ export default function App() {
             <BackgroundAnimations />
 
             {/* Traditional Corner Ornaments for absolute top corners of the screen */}
-            <div className="absolute top-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-60">
+            <div className="absolute top-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-[0.45]">
               <CornerPattern className="w-full h-full" />
             </div>
-            <div className="absolute top-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-60 transform rotate-90">
+            <div className="absolute top-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-[0.45] transform rotate-90">
               <CornerPattern className="w-full h-full" />
             </div>
 
@@ -203,14 +202,13 @@ export default function App() {
                   <FloralDivider className="w-56 h-10 text-gold-400" />
                 </div>
 
-                {/* Rings Image cropped elegantly in a gold frame */}
+                {/* Rings Image cropped elegantly in a circular gold frame - optimized for phones to never collapse */}
                 <div className="flex justify-center">
                   <motion.div 
                     initial={{ y: 40, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
+                    animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1.2 }}
-                    className="relative p-2.5 rounded-full border-2 border-gold-400 bg-white shadow-2xl max-w-[220px] md:max-w-[260px] aspect-square overflow-hidden group"
+                    className="relative p-2.5 rounded-full border-2 border-gold-400 bg-white shadow-2xl w-[220px] h-[220px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] flex-shrink-0 overflow-hidden group"
                   >
                     <div className="absolute inset-0 border-2 border-gold-300 rounded-full z-10 pointer-events-none" />
                     <img
@@ -218,7 +216,6 @@ export default function App() {
                       alt="Alliances en Or d'Oumaima & Hakim"
                       referrerPolicy="no-referrer"
                       onError={(e) => {
-                        // Fallback to a breathtaking high-res photo of luxury gold wedding alliances
                         e.currentTarget.src = "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80";
                       }}
                       className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-700"
@@ -390,10 +387,10 @@ export default function App() {
             </div>
 
             {/* Decorative Corner Ornaments for absolute bottom corners of the screen */}
-            <div className="absolute bottom-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-60 transform -rotate-90">
+            <div className="absolute bottom-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-[0.45] transform -rotate-90">
               <CornerPattern className="w-full h-full" />
             </div>
-            <div className="absolute bottom-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-60 transform rotate-180">
+            <div className="absolute bottom-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-[0.45] transform rotate-180">
               <CornerPattern className="w-full h-full" />
             </div>
           </motion.div>
