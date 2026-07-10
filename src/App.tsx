@@ -109,10 +109,10 @@ export default function App() {
             <BackgroundAnimations />
 
             {/* Traditional Corner Ornaments for absolute top corners of the screen */}
-            <div className="absolute top-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-[0.45]">
+            <div className="absolute top-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-100">
               <CornerPattern className="w-full h-full" />
             </div>
-            <div className="absolute top-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-[0.45] transform rotate-90">
+            <div className="absolute top-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-100 transform rotate-90">
               <CornerPattern className="w-full h-full" />
             </div>
 
@@ -387,10 +387,10 @@ export default function App() {
             </div>
 
             {/* Decorative Corner Ornaments for absolute bottom corners of the screen */}
-            <div className="absolute bottom-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-[0.45] transform -rotate-90">
+            <div className="absolute bottom-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-100 transform -rotate-90">
               <CornerPattern className="w-full h-full" />
             </div>
-            <div className="absolute bottom-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-[0.45] transform rotate-180">
+            <div className="absolute bottom-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-100 transform rotate-180">
               <CornerPattern className="w-full h-full" />
             </div>
           </motion.div>
