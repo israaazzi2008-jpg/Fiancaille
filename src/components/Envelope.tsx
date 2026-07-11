@@ -142,21 +142,21 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             <stop offset="100%" stopColor="#634811" />
           </linearGradient>
           <linearGradient id="waxMaroneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#5a0409" />
-            <stop offset="35%" stopColor="#400104" />
-            <stop offset="70%" stopColor="#280002" />
-            <stop offset="100%" stopColor="#120000" />
+            <stop offset="0%" stopColor="#6e0f12" />
+            <stop offset="35%" stopColor="#4f0507" />
+            <stop offset="70%" stopColor="#360102" />
+            <stop offset="100%" stopColor="#1c0001" />
           </linearGradient>
           <linearGradient id="waxMaroneDark" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#3c0003" />
-            <stop offset="50%" stopColor="#240002" />
-            <stop offset="100%" stopColor="#0d0000" />
+            <stop offset="0%" stopColor="#420204" />
+            <stop offset="50%" stopColor="#2c0001" />
+            <stop offset="100%" stopColor="#140000" />
           </linearGradient>
           <radialGradient id="waxMaroneHighlights" cx="35%" cy="35%" r="65%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
-            <stop offset="30%" stopColor="#ff9da0" stopOpacity="0.15" />
-            <stop offset="70%" stopColor="#400104" stopOpacity="0" />
-            <stop offset="100%" stopColor="#0a0000" stopOpacity="0.8" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.35" />
+            <stop offset="30%" stopColor="#ffa0a2" stopOpacity="0.12" />
+            <stop offset="70%" stopColor="#4f0507" stopOpacity="0" />
+            <stop offset="100%" stopColor="#0f0000" stopOpacity="0.85" />
           </radialGradient>
         </defs>
       </svg>
@@ -165,7 +165,6 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
       <div className="absolute inset-0 bg-[#EFECE7] z-0 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#EFECE7] via-[#E2D9C8] to-[#BBA07A] opacity-100 z-0 pointer-events-none" />
       <div className="absolute inset-0 bg-fine-lines opacity-[0.08] z-0 pointer-events-none" />
-      <div className="absolute inset-0 bg-islamic-pattern opacity-[0.015] mix-blend-overlay z-0 pointer-events-none" />
 
       {/* Sophisticated display typography */}
       <motion.div 
@@ -381,76 +380,24 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                 style={{ willChange: 'transform, opacity' }}
                 className="absolute top-[46%] left-[50%] -translate-x-[50%] -translate-y-[46%] z-30 flex items-center justify-center transform-gpu"
               >
-                {/* Decorative rotating outer gold ring */}
-                <div 
-                  className="absolute w-24 h-24 rounded-full border border-gold-400/25 animate-spin" 
-                  style={{ animationDuration: '28s', willChange: 'transform' }} 
-                />
-
-                {/* Second orbital star ring */}
-                <div 
-                  className="absolute w-20 h-20 rounded-full border border-dashed border-gold-300/15 animate-spin" 
-                  style={{ animationDuration: '16s', animationDirection: 'reverse', willChange: 'transform' }} 
-                />
-
-                {/* 3D-Look Royal Hand-Pressed Wax Seal Button with custom organic wavy boundaries */}
+                {/* Minimalist Maroon Wax Seal Button */}
                 <motion.button
-                  whileHover={{ scale: 1.08, y: -1 }}
+                  whileHover={{ scale: 1.08, y: -0.5 }}
                   whileTap={{ scale: 0.94 }}
                   onClick={handleOpenClick}
-                  className="relative w-22 h-22 sm:w-24 sm:h-24 flex items-center justify-center pointer-events-auto group z-30 cursor-pointer focus:outline-none shadow-[0_12px_28px_rgba(40,0,2,0.45)] rounded-full bg-transparent transform-gpu"
+                  className="relative w-12 h-12 flex items-center justify-center pointer-events-auto group z-30 cursor-pointer focus:outline-none shadow-[0_4px_12px_rgba(74,44,17,0.35)] rounded-full bg-[#4a2c11] border-2 border-gold-400/70 transform-gpu"
                   aria-label="Ouvrir l'invitation"
                 >
-                  {/* Organic Poured Wax Shape Background */}
-                  <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105">
-                    
-                    {/* Outer hand-melted pool of rich marone wax */}
-                    <path 
-                      d="M 50,2 C 68,2 86,10 93,27 C 99,44 95,65 87,79 C 78,92 59,98 42,96 C 25,93 8,82 4,64 C 0,46 10,25 25,12 C 32,6 41,2 50,2 Z" 
-                      fill="url(#waxMaroneGrad)"
-                    />
-                    
-                    {/* Highlights overlay for extreme 3D realism */}
-                    <path 
-                      d="M 50,2 C 68,2 86,10 93,27 C 99,44 95,65 87,79 C 78,92 59,98 42,96 C 25,93 8,82 4,64 C 0,46 10,25 25,12 C 32,6 41,2 50,2 Z" 
-                      fill="url(#waxMaroneHighlights)"
-                      className="mix-blend-overlay"
-                    />
-
-                    {/* Pressed interior circular plate where the monogram is stamped */}
-                    <circle 
-                      cx="50" 
-                      cy="48" 
-                      r="33" 
-                      fill="url(#waxMaroneDark)"
-                      stroke="url(#luxeGoldGrad)"
-                      strokeWidth="1.2"
-                    />
-                    <circle 
-                      cx="50" 
-                      cy="48" 
-                      r="31.5" 
-                      fill="none"
-                      stroke="#000000"
-                      strokeWidth="1.5"
-                      opacity="0.35"
-                    />
-                    
-                    {/* Inner gold circular ornament */}
-                    <circle cx="50" cy="48" r="28" fill="none" stroke="url(#luxeGoldLight)" strokeWidth="0.8" strokeDasharray="3 3" opacity="0.65" />
-                    <circle cx="50" cy="48" r="25" fill="none" stroke="url(#luxeGoldGrad)" strokeWidth="0.5" opacity="0.4" />
-                  </svg>
-
                   {/* Centered Embossed Monogram content overlay */}
-                  <div className="relative z-10 flex flex-col items-center justify-center text-center select-none -translate-y-0.5">
+                  <div className="relative z-10 flex flex-col items-center justify-center text-center select-none">
                     {/* Elegant Embossed Wedding Rings - beautifully centered and sized */}
-                    <div className="scale-[0.85] opacity-95 filter drop-shadow-[0_2px_3px_rgba(0,0,0,0.65)] transition-transform duration-300 group-hover:scale-[0.9]">
-                      <WeddingRingsSvg className="w-12 h-12 text-[#f5dfa8]" />
+                    <div className="scale-95 opacity-90 transition-transform duration-300 group-hover:scale-100">
+                      <WeddingRingsSvg className="w-5 h-5 text-gold-200/90" />
                     </div>
                   </div>
 
-                  {/* High-end glossy shine/shimmer sweep animation */}
-                  <div className="animate-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none rounded-full mix-blend-overlay" />
+                  {/* Gentle shine/shimmer overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-white/5 to-white/15 pointer-events-none rounded-full" />
                 </motion.button>
               </motion.div>
             </motion.div>
