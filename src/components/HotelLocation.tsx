@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Navigation, Calendar } from 'lucide-react';
 
 export const HotelLocation: React.FC = () => {
-  // 4 Hotel pictures with states for robust local fallback to default template image
-  const [pic1, setPic1] = useState('/hotel_pic_1.jpg');
-  const [pic2, setPic2] = useState('/hotel_pic_2.jpg');
-  const [pic3, setPic3] = useState('/hotel_pic_3.jpg');
-  const [pic4, setPic4] = useState('/hotel_pic_4.jpg');
+  // 4 Hotel pictures with states initialized to the uploaded luxury_hotel.jpg
+  const [pic1, setPic1] = useState('/luxury_hotel.jpg');
+  const [pic2, setPic2] = useState('/luxury_hotel.jpg');
+  const [pic3, setPic3] = useState('/luxury_hotel.jpg');
+  const [pic4, setPic4] = useState('/luxury_hotel.jpg');
 
   const hotelPics = [pic1, pic2, pic3, pic4];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,11 +43,12 @@ export const HotelLocation: React.FC = () => {
               alt={`Hôtel Le Napolitain ${idx + 1}`}
               referrerPolicy="no-referrer"
               onError={() => {
-                // Smoothly fallback to the pre-installed high-quality template image if they are not yet downloaded/uploaded
-                if (idx === 0) setPic1('/luxury_hotel.jpg');
-                if (idx === 1) setPic2('/luxury_hotel.jpg');
-                if (idx === 2) setPic3('/luxury_hotel.jpg');
-                if (idx === 3) setPic4('/luxury_hotel.jpg');
+                // Smoothly fallback to a high-quality luxury hotel image from Unsplash if the local file is missing
+                const fallbackUrl = "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80";
+                if (idx === 0) setPic1(fallbackUrl);
+                if (idx === 1) setPic2(fallbackUrl);
+                if (idx === 2) setPic3(fallbackUrl);
+                if (idx === 3) setPic4(fallbackUrl);
               }}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
                 idx === currentIndex ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-95 pointer-events-none'
@@ -91,7 +92,7 @@ export const HotelLocation: React.FC = () => {
             </h4>
             
             <p className="font-sans text-sm text-nude-600 leading-relaxed mb-4">
-              Route de Jeanne d'Arc, Skikda, Algérie. Un établissement d'exception au charme intemporel offrant une vue imprenable sur la baie.
+              Route de Corniche Stora, Placette Casino
             </p>
 
             <div className="space-y-2.5 border-t border-b border-nude-200 py-4 mb-6">
