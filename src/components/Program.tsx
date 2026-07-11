@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Music, Gift, Heart, Coffee, Moon } from 'lucide-react';
+import { Sparkles, Music, Gift, Heart, Coffee, Moon, Utensils, GlassWater } from 'lucide-react';
 
 interface EventItem {
   time: string;
@@ -18,25 +18,25 @@ const programEvents: EventItem[] = [
   },
   {
     time: '15:00',
-    title: 'Les Salles & Les Secrets',
-    description: 'Une immersion dans la tradition et la magie des préparatifs. Partage des rituels familiaux et secrets bienveillants de fiançailles.',
-    icon: <Gift className="w-5 h-5 text-gold-500" />,
+    title: 'Cocktail de Bienvenue & Tradition',
+    description: `✧ Cocktail de Bienvenue\nPièces salées, douceurs sucrées et assortiment de jus naturels frais.\n\n✧ Instant Tradition\nRfis traditionnel d’exception servi avec son Lben.\n\n✧ Douceur Fruitée\nSalade de fruits frais de saison.`,
+    icon: <Utensils className="w-5 h-5 text-gold-500" />,
   },
   {
     time: '16:30',
-    title: 'Entrée Solennelle d\'Oumaima & Hakim',
+    title: 'La Pause Gourmande',
+    description: `✧ Pause Prestige\nCafé et lait accompagnés de pâtisseries traditionnelles et de gâteaux prestige.\n\n✧ Clôture Gourmande\nThé parfumé avec un assortiment de m’asselat et douceurs orientales.`,
+    icon: <Coffee className="w-5 h-5 text-gold-500" />,
+  },
+  {
+    time: '17:30',
+    title: 'L\'Entrée Solennelle d\'Oumaima & Hakim',
     description: 'Entrée triomphale de notre couple sous des mélodies majestueuses, suivie de l\'échange de nos magnifiques alliances.',
     icon: <Heart className="w-5 h-5 text-gold-500 fill-gold-200/50" />,
   },
   {
-    time: '18:00',
-    title: 'Partage de Douceurs',
-    description: 'Découpe du gâteau d\'honneur. Dégustation conviviale de thés parfumés, cafés d\'exception et pâtisseries raffinées.',
-    icon: <Coffee className="w-5 h-5 text-gold-500" />,
-  },
-  {
-    time: '19:00',
-    title: 'Clôture & Gratitude',
+    time: '19:30',
+    title: 'Chaleureux Au Revoir',
     description: 'Fin de la merveilleuse cérémonie des fiançailles. Nous vous remercions infiniment pour votre présence et vos bénédictions.',
     icon: <Moon className="w-5 h-5 text-gold-500" />,
   },
@@ -146,7 +146,7 @@ export const Program: React.FC = () => {
                       {event.title}
                     </h4>
 
-                    <p className="font-sans text-sm text-nude-800 mt-2.5 leading-relaxed font-semibold relative z-10">
+                    <p className="font-sans text-sm text-nude-800 mt-2.5 leading-relaxed font-semibold relative z-10 whitespace-pre-line">
                       {event.description}
                     </p>
 
