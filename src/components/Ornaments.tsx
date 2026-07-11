@@ -173,7 +173,7 @@ export const IslamicMandala: React.FC<{ className?: string }> = ({ className = '
   );
 };
 
-// Luxurious detailed divider with interlocking rings, sparkles, leaves, and flourishes
+// Elegant luxurious divider with interlocking rings, sparkles, leaves, and flourishes
 export const EngagementRingsDivider: React.FC<{ className?: string }> = ({ className = 'w-72 h-14' }) => {
   return (
     <svg className={`${className} mx-auto text-gold-500`} viewBox="0 0 280 40" fill="none">
@@ -203,29 +203,12 @@ export const EngagementRingsDivider: React.FC<{ className?: string }> = ({ class
       <path d="M 168,14 Q 164,11 165,15 Z" fill="url(#gold-light)" />
       <path d="M 172,24 Q 168,27 169,23 Z" fill="url(#gold-light)" />
 
-      {/* Beautiful interlocking rings in the center */}
+      {/* Elegant interlocking rings in the center */}
       <g>
-        {/* Left Ring (tilted slightly left) */}
-        <ellipse cx="132" cy="20" rx="9" ry="8" stroke="url(#gold)" strokeWidth="2.5" transform="rotate(-10, 132, 20)" fill="none" />
-        {/* Diamond on Left Ring */}
-        <path d="M 127,10 L 130,7 L 133,10 L 130,13 Z" fill="#ffffff" stroke="url(#gold)" strokeWidth="0.8" />
-        <circle cx="130" cy="10" r="1" fill="#ffffff" />
-
-        {/* Right Ring (tilted slightly right) */}
-        <ellipse cx="148" cy="20" rx="9" ry="8" stroke="url(#gold)" strokeWidth="2.5" transform="rotate(10, 148, 20)" fill="none" />
-        {/* Accent Diamond Sparkle on Right Ring */}
-        <path d="M 152,10 L 154.5,8 L 157,10 L 154.5,12 Z" fill="#ffffff" stroke="url(#gold)" strokeWidth="0.6" />
-      </g>
-
-      {/* Little magical sparkles / stars floating around the center rings */}
-      <g transform="translate(140, 6) scale(0.6)">
-        <path d="M 0,-10 L 2,-3 L 9,-3 L 3,1 L 5,8 L 0,4 L -5,8 L -3,1 L -9,-3 L -2,-3 Z" fill="url(#gold-light)" className="animate-pulse" />
-      </g>
-      <g transform="translate(125, 32) scale(0.4)">
-        <path d="M 0,-10 L 2,-3 L 9,-3 L 3,1 L 5,8 L 0,4 L -5,8 L -3,1 L -9,-3 L -2,-3 Z" fill="url(#gold-light)" opacity="0.8" />
-      </g>
-      <g transform="translate(155, 32) scale(0.4)">
-        <path d="M 0,-10 L 2,-3 L 9,-3 L 3,1 L 5,8 L 0,4 L -5,8 L -3,1 L -9,-3 L -2,-3 Z" fill="url(#gold-light)" opacity="0.8" />
+        {/* Left Ring */}
+        <circle cx="134" cy="20" r="8.5" stroke="url(#gold)" strokeWidth="1.8" fill="none" />
+        {/* Right Ring */}
+        <circle cx="146" cy="20" r="8.5" stroke="url(#gold)" strokeWidth="1.8" fill="none" />
       </g>
     </svg>
   );
@@ -296,14 +279,15 @@ export const ElegantHeartDivider: React.FC<{ className?: string }> = ({ classNam
       <path d="M 70,20 C 73,14 80,12 84,18" stroke="url(#gold)" strokeWidth="0.8" strokeLinecap="round" />
       <path d="M 130,20 C 127,14 120,12 116,18" stroke="url(#gold)" strokeWidth="0.8" strokeLinecap="round" />
 
-      {/* Beautiful glowing heart in the center */}
+      {/* Beautiful interlocking rings in the center */}
       <g transform="translate(100, 20) scale(0.65)" className="animate-pulse">
-        <path 
-          d="M 0,10 C -12,2 -18,-2 -18,-11 C -18,-21 -9,-25 0,-15 C 9,-25 18,-21 18,-11 C 18,-2 -12,2 0,10 Z" 
-          fill="#991b1b" 
-          stroke="url(#gold)" 
-          strokeWidth="1.5" 
-        />
+        {/* Left Ring */}
+        <ellipse cx="-5" cy="0" rx="8.5" ry="7.5" stroke="url(#gold)" strokeWidth="1.8" transform="rotate(-12 -5 0)" fill="none" />
+        {/* Right Ring */}
+        <ellipse cx="5" cy="0" rx="8.5" ry="7.5" stroke="url(#gold)" strokeWidth="1.8" transform="rotate(12 5 0)" fill="none" />
+        {/* Tiny sparkling center gem */}
+        <circle cx="0" cy="-6" r="1.2" fill="#ffffff" className="animate-ping" style={{ animationDuration: '3s' }} />
+        <circle cx="0" cy="-6" r="1" fill="#ffffff" />
       </g>
       
       {/* Elegant side leaf accents */}
