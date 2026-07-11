@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { MapPin, Navigation, Calendar } from 'lucide-react';
 
 export const HotelLocation: React.FC = () => {
-  // 4 Hotel pictures with states initialized to the uploaded luxury_hotel.jpg
-  const [pic1, setPic1] = useState('/luxury_hotel.jpg');
-  const [pic2, setPic2] = useState('/luxury_hotel.jpg');
-  const [pic3, setPic3] = useState('/luxury_hotel.jpg');
-  const [pic4, setPic4] = useState('/luxury_hotel.jpg');
+  // 4 Hotel pictures with states initialized to the uploaded hotel_pic_i.jpg
+  const [pic1, setPic1] = useState('/hotel_pic_1.jpg');
+  const [pic2, setPic2] = useState('/hotel_pic_2.jpg');
+  const [pic3, setPic3] = useState('/hotel_pic_3.jpg');
+  const [pic4, setPic4] = useState('/hotel_pic_4.jpg');
 
   const hotelPics = [pic1, pic2, pic3, pic4];
   const [currentIndex, setCurrentIndex] = useState(0);
