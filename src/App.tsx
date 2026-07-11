@@ -127,32 +127,21 @@ export default function App() {
                 transition={{ delay: 0.1, duration: 1.2, type: 'spring' }}
                 className="text-center flex flex-col items-center space-y-4 max-w-3xl mx-auto w-full relative"
               >
-                <div className="w-full flex items-center justify-center relative mb-3">
-                  <div className="absolute inset-0 bg-gold-100/30 rounded-full blur-xl w-48 h-10 mx-auto" />
-                  <EngagementRingsDivider className="w-80 h-16 relative z-10" />
-                </div>
-
                 {/* بسم الله الرحمن الرحيم */}
-                <div className="py-2 space-y-2">
+                <div className="py-2 space-y-4">
                   <motion.h1 
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.3, duration: 1 }}
-                    className="font-serif text-gold-600 text-3xl md:text-4xl tracking-widest italic" 
-                    style={{ textShadow: '0 2px 4px rgba(184, 141, 47, 0.15)', paddingBottom: '7px', paddingTop: '-4px', marginTop: '-4px' }}
+                    className="text-2xl md:text-3xl tracking-normal text-gold-gradient font-amiri font-normal" 
+                    style={{ textShadow: '0 1px 3px rgba(184, 141, 47, 0.15)', paddingBottom: '7px', paddingTop: '-4px', marginTop: '-4px' }}
                   >
                     بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
                   </motion.h1>
-                  <p className="font-serif italic text-xs sm:text-sm tracking-[0.18em] text-[#543b10] uppercase mt-3 font-bold leading-relaxed drop-shadow-[0_0.5px_0.5px_rgba(255,255,255,0.7)]">
-                    Deux chemins se croisent, une promesse d'éternité
+                  <p className="font-serif italic text-xs sm:text-sm tracking-[0.18em] text-[#543b10] uppercase mt-5 font-bold leading-relaxed drop-shadow-[0_0.5px_0.5px_rgba(255,255,255,0.7)] px-4 max-w-md mx-auto">
+                    C’est avec un amour immense et la promesse d'une vie de bonheur partagé que nos deux âmes s’unissent aujourd'hui pour l’éternité.
                   </p>
-                  <p className="font-serif italic text-sm sm:text-base text-[#211603] max-w-md mx-auto mt-5 leading-relaxed font-black tracking-wide drop-shadow-[0_0.5px_1px_rgba(255,255,255,0.8)] px-4">
-                    « C’est avec un amour immense et la promesse d'une vie de bonheur partagé que nos deux âmes s’unissent aujourd'hui pour l’éternité. »
-                  </p>
-                  <ElegantHeartDivider className="w-64 h-10 mt-3" />
                 </div>
-                
-                <div className="w-32 h-[1.5px] bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
               </motion.div>
 
               {/* SECTION 2: The Main Names and Rings Photo - Elegant Floating Layout */}
@@ -163,8 +152,13 @@ export default function App() {
                 transition={{ delay: 0.2, duration: 1.2 }}
                 className="text-center space-y-6 max-w-3xl mx-auto w-full relative"
               >
+                <div className="w-full flex items-center justify-center relative mb-3">
+                  <div className="absolute inset-0 bg-gold-100/30 rounded-full blur-xl w-48 h-10 mx-auto" />
+                  <EngagementRingsDivider className="w-80 h-16 relative z-10" />
+                </div>
+
                 <span className="font-cinzel text-xs md:text-sm uppercase tracking-[0.3em] text-gold-600 font-bold block drop-shadow-sm">
-                  ✦ CÉLÉBRATION DE L'ENGAGEMENT ✦
+                  CÉLÉBRATION DE L'ENGAGEMENT
                 </span>
 
                 {/* Grand Calligraphy Names with Gold foil gradients & staggered slide animation */}
@@ -248,19 +242,17 @@ export default function App() {
                     </h4>
                     
                     <p className="font-serif text-lg md:text-xl text-nude-900 leading-relaxed max-w-2xl mx-auto italic font-bold">
-                      « Avec la bénédiction de Dieu le Très-Haut, nous avons l’immense privilège et le bonheur infini de vous convier à la célébration de nos fiançailles. »
+                      Avec la bénédiction de Dieu le Très-Haut, nous avons l’immense privilège et le bonheur infini de vous convier à la célébration de nos fiançailles.
                     </p>
                     
                     <div className="w-16 h-[1px] bg-gold-400 mx-auto" />
                     
-                    <p className="font-sans text-sm md:text-base text-nude-700 leading-relaxed max-w-xl mx-auto font-medium">
+                    <p className="font-serif italic text-base md:text-lg text-nude-800 leading-relaxed max-w-xl mx-auto font-medium tracking-wide">
                       Nos cœurs s’unissent pour écrire les premières notes de notre destin commun sous le regard bienveillant de nos familles respectives. Votre présence chaleureuse à nos côtés illuminera notre joie et rendra cette journée éternelle.
                     </p>
 
                     <div className="flex items-center justify-center space-x-3 text-gold-600 pt-4">
-                      <Heart className="w-4 h-4 fill-gold-400" />
                       <span className="font-cinzel text-xs tracking-[0.25em] uppercase font-bold text-gold-700">Oumaima & Hakim</span>
-                      <Heart className="w-4 h-4 fill-gold-400" />
                     </div>
                   </div>
                 </IslamicArchFrame>
@@ -277,11 +269,6 @@ export default function App() {
                 <Countdown />
               </motion.div>
 
-              {/* SECTION 5: The Chronological Program */}
-              <div className="border-t border-b border-gold-300/30 py-6">
-                <Program />
-              </div>
-
               {/* SECTION 6: The Venue (Impérial Palace) */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -291,6 +278,11 @@ export default function App() {
               >
                 <HotelLocation />
               </motion.div>
+
+              {/* SECTION 5: The Chronological Program */}
+              <div className="border-t border-b border-gold-300/30 py-6">
+                <Program />
+              </div>
 
               {/* SECTION 7: Arabic and French Gratitude Ending */}
               <motion.div
