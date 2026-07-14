@@ -8,8 +8,8 @@ interface TimeLeft {
 }
 
 export const Countdown: React.FC = () => {
-  // Target date for the fiancé ceremony: Septembre 12, 2026
-  const targetDate = new Date('2026-09-12T13:00:00');
+  // Target date for the fiancé ceremony: Octobre 17, 2026
+  const targetDate = new Date('2026-10-17T13:00:00');
 
   const calculateTimeLeft = (): TimeLeft => {
     const difference = +targetDate - +new Date();
