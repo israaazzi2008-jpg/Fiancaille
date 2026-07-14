@@ -98,7 +98,7 @@ export const HotelLocation: React.FC = () => {
             <div className="space-y-2.5 border-t border-b border-nude-200 py-4 mb-6">
               <div className="flex items-center text-sm text-nude-600 space-x-3">
                 <Calendar className="w-4 h-4 text-gold-500" />
-                <span>Samedi, 12 Septembre 2026 à partir de 13:00</span>
+                <span>Samedi, 17 Octobre 2026 à partir de 13:00</span>
               </div>
             </div>
           </div>
@@ -143,3 +143,4 @@ export const HotelLocation: React.FC = () => {
     </div>
   );
 };
+
