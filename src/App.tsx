@@ -316,7 +316,7 @@ export default function App() {
                 </div>
 
                 <p className="font-cinzel text-xs tracking-[0.3em] text-gold-600 uppercase font-bold">
-                  Oumaima & Hakim • Samedi 12 Septembre 2026
+                  Oumaima & Hakim • Samedi 17 Octobre 2026
                 </p>
               </motion.div>
 
