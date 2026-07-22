@@ -41,7 +41,7 @@ export default function App() {
           {/* Elegant simple background image with soft opacity and natural color reproduction, optimized for phones */}
           <img 
             src={sanctuaryBackdropImg} 
-            alt="Scenic Sanctuary Backdrop" 
+            alt="Scenic Sanctuary Backdro" 
             referrerPolicy="no-referrer"
             onError={(e) => {
               const img = e.currentTarget;
@@ -316,7 +316,7 @@ export default function App() {
                 </div>
 
                 <p className="font-cinzel text-xs tracking-[0.3em] text-gold-600 uppercase font-bold">
-                  Oumaima & Hakim • Samedi 17 Octobre 2026
+                  Oumaima & Hakim • Vendredi 16 Octobre 2026
                 </p>
               </motion.div>
 
