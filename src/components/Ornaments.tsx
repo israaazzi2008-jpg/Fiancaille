@@ -23,7 +23,7 @@ export const GoldGradientDefs: React.FC = () => (
 // Traditional Islamic Arch Border / Frame - Redesigned as an elegant card
 export const IslamicArchFrame: React.FC<{ children: React.ReactNode; id?: string; bgImage?: string }> = ({ children, id }) => {
   return (
-    <div id={id} className="relative py-14 px-8 sm:px-12 md:px-14 rounded-[80px_160px] md:rounded-[110px_220px] overflow-hidden bg-[#FAF7F2] border-[4px] border-double border-gold-500/80 shadow-[0_25px_60px_rgba(184,141,47,0.25)] max-w-xl mx-auto">
+    <div id={id} className="relative pt-7 sm:pt-8 pb-10 sm:pb-12 px-6 sm:px-12 md:px-14 rounded-[80px_160px] md:rounded-[110px_220px] overflow-hidden bg-[#FAF7F2] border-[4px] border-double border-gold-500/80 shadow-[0_25px_60px_rgba(184,141,47,0.25)] max-w-xl mx-auto">
       {/* Background is solid luxury creamy ivory (normal color, no image) */}
 
       {/* Decorative Golden Corner SVGs - Top Left */}
@@ -244,21 +244,9 @@ export const FloralDivider: React.FC<{ className?: string }> = ({ className = 'w
   );
 };
 
-// Traditional corners - Just a simple soft radial shadow in the corner with no shapes
-export const CornerPattern: React.FC<{ className?: string }> = ({ className = '' }) => {
-  return (
-    <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="corner-shadow" cx="0%" cy="0%" r="100%">
-          <stop offset="0%" stopColor="#4e3b16" stopOpacity="0.8" />
-          <stop offset="40%" stopColor="#695123" stopOpacity="0.5" />
-          <stop offset="75%" stopColor="#8d713a" stopOpacity="0.18" />
-          <stop offset="100%" stopColor="#8d713a" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <rect width="100" height="100" fill="url(#corner-shadow)" />
-    </svg>
-  );
+// Traditional corners - Disabled to keep background 100% original without shadows
+export const CornerPattern: React.FC<{ className?: string }> = () => {
+  return null;
 };
 
 // Elegant luxurious line with a glowing heart in the middle and gold sparkles
