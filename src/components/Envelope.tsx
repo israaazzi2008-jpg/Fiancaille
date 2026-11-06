@@ -164,7 +164,7 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
       {/* Uploaded Background Picture */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img 
-          src="/assets/aistudio/back_57405b33.jpg" 
+          src="/back.jpg" 
           alt="Introduction Background" 
           referrerPolicy="no-referrer"
           onError={(e) => {
