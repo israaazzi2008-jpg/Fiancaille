@@ -174,12 +174,12 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
         />
       </div>
 
-      {/* Sophisticated display typography in beige foncé - kept in exact position */}
+      {/* Sophisticated display typography in beige foncé */}
       <motion.div 
         initial={{ opacity: 0, y: -25 }}
         animate={{ opacity: isOpen ? 0 : 1, y: isOpen ? -35 : 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="text-center z-10 space-y-3 max-w-lg mt-2 pointer-events-none"
+        className="text-center z-10 space-y-3 max-w-lg mt-4 sm:mt-5 md:mt-6 pointer-events-none"
       >
         <span className="font-cinzel text-xs md:text-sm tracking-[0.4em] text-[#6e4e1f] font-light block drop-shadow-sm">
           ✦ INVITATION OFFICIELLE ✦
