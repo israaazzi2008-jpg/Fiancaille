@@ -9,8 +9,7 @@ import {
   ElegantHeartDivider,
   WeddingRingsSvg,
   FloralDivider,
-  GoldGradientDefs,
-  CornerPattern
+  GoldGradientDefs
 } from './components/Ornaments';
 import { Countdown } from './components/Countdown';
 import { Program } from './components/Program';
@@ -23,41 +22,31 @@ export default function App() {
 
   // Reference images from the public folder for easy user replacement and customization
   const ringsImageUrl = '/engagement_rings.jpg';
-  const sanctuaryBackdropImg = '/luxury_sanctuary_backdro.png';
+  const sanctuaryBackdropImg = '/baj.jpg';
 
   return (
     <div className={`min-h-screen text-nude-900 relative selection:bg-gold-200 selection:text-gold-900 transition-colors duration-1000 ${isOpened ? 'bg-transparent overflow-y-auto scroll-smooth' : 'bg-nude-50 overflow-hidden'}`}>
       {/* Global SVG Gradients Provider */}
       <GoldGradientDefs />
 
-      {/* Luxurious Nude Background with fine overlay patterns and a simple, subtle background image - visible on the main invitation screen */}
+      {/* 100% Original background image with no filters, overlays or corner shadows */}
       {isOpened && (
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: 'easeOut' }}
-          className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-gradient-to-b from-[#faf8f6] via-[#f4efe9] to-[#e8decb]"
+          className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
         >
-          {/* Elegant simple background image with soft opacity and natural color reproduction, optimized for phones */}
           <img 
             src={sanctuaryBackdropImg} 
-            alt="Scenic Sanctuary Backdro" 
+            alt="Scenic Sanctuary Backdrop" 
             referrerPolicy="no-referrer"
             onError={(e) => {
               const img = e.currentTarget;
-              const currentSrc = img.getAttribute('src') || '';
-              if (currentSrc.endsWith('.png')) {
-                img.src = '/luxury_sanctuary_backdro.jpg';
-              } else if (currentSrc.endsWith('.jpg')) {
-                img.src = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80";
-              }
+              img.src = '/baj.jpg';
             }}
-            className="w-full h-full object-cover opacity-85 sm:opacity-90 filter brightness-100 contrast-100 saturate-100"
+            className="w-full h-full object-cover object-center"
           />
-          {/* Subtle light protective overlay to guarantee superb readability and phone optimization */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#faf8f6]/30 via-[#f4efe9]/20 to-[#e8decb]/35" />
-          {/* Subtle elegant line overlays to add sophisticated texture */}
-          <div className="absolute inset-0 bg-fine-lines opacity-[0.05]" />
         </motion.div>
       )}
 
@@ -108,13 +97,7 @@ export default function App() {
             {/* Elegant Background Particles (Birds, Sparkles, Hearts) */}
             <BackgroundAnimations />
 
-            {/* Traditional Corner Ornaments for absolute top corners of the screen */}
-            <div className="absolute top-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-100">
-              <CornerPattern className="w-full h-full" />
-            </div>
-            <div className="absolute top-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-100 transform rotate-90">
-              <CornerPattern className="w-full h-full" />
-            </div>
+
 
             {/* Inside Content Wrapper - Restricted max width so it aligns perfectly inside the palace doorway */}
             <div className="w-full max-w-xl mx-auto space-y-8 md:space-y-12 relative z-10 px-2 sm:px-4">
@@ -193,7 +176,7 @@ export default function App() {
                 </div>
 
                 <div className="flex justify-center py-2">
-                  <FloralDivider className="w-56 h-10 text-gold-400" />
+                  <EngagementRingsDivider className="w-80 h-16 text-gold-500" />
                 </div>
 
                 {/* Rings Image cropped elegantly in a circular gold frame - optimized for phones to never collapse */}
@@ -229,29 +212,31 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.3, type: 'spring' }}
-                className="px-2"
+                className="px-2 -mt-4 sm:-mt-6 md:-mt-8"
               >
                 <IslamicArchFrame id="cadre-invitation">
-                  <div className="text-center space-y-6 py-6 px-2 md:px-8">
-                    <span className="font-cinzel text-xs tracking-[0.25em] text-gold-600 font-extrabold uppercase">
-                      ✦ L'Invitation d'Honneur ✦
-                    </span>
+                  <div className="text-center space-y-5 pt-1 sm:pt-2 pb-6 px-2 md:px-8">
+                    <div className="-mt-1">
+                      <span className="font-cinzel text-xs sm:text-sm tracking-[0.25em] text-gold-600 font-extrabold uppercase">
+                        ✦ L'Invitation d'Honneur ✦
+                      </span>
+                    </div>
                     
-                    <h4 className="font-serif text-3xl md:text-4xl text-nude-950 font-black italic tracking-wide text-gold-gradient">
-                      Un Amour Béni
-                    </h4>
-                    
-                    <p className="font-serif text-lg md:text-xl text-nude-900 leading-relaxed max-w-2xl mx-auto italic font-bold">
-                      Avec la bénédiction de Dieu le Très-Haut, nous avons l’immense privilège et le bonheur infini de vous convier à la célébration de nos fiançailles.
-                    </p>
-                    
-                    <div className="w-16 h-[1px] bg-gold-400 mx-auto" />
-                    
-                    <p className="font-serif italic text-base md:text-lg text-nude-800 leading-relaxed max-w-xl mx-auto font-medium tracking-wide">
-                      Nos cœurs s’unissent pour écrire les premières notes de notre destin commun sous le regard bienveillant de nos familles respectives. Votre présence chaleureuse à nos côtés illuminera notre joie et rendra cette journée éternelle.
+                    <p className="font-serif text-base sm:text-lg md:text-xl text-nude-900 leading-relaxed max-w-2xl mx-auto font-medium">
+                      Les familles Benayache et Boussoufa ont le plaisir et l’immense joie de vous convier à la célébration des fiançailles de leur chère fille Oumaima,
                     </p>
 
-                    <div className="flex items-center justify-center space-x-3 text-gold-600 pt-4">
+                    <div className="w-16 h-[1.5px] bg-gold-400 mx-auto opacity-70 my-3" />
+
+                    <p className="font-serif italic text-base md:text-lg text-nude-800 leading-relaxed max-w-xl mx-auto font-medium">
+                      Votre présence à nos côtés sera un précieux témoignage d’affection et contribuera à rendre cette journée encore plus belle et mémorable.
+                    </p>
+
+                    <p className="font-serif italic text-base md:text-lg text-gold-700 leading-relaxed max-w-xl mx-auto font-semibold">
+                      Au plaisir de partager avec vous ce moment de bonheur et de joie.
+                    </p>
+
+                    <div className="flex items-center justify-center space-x-3 text-gold-600 pt-2">
                       <span className="font-cinzel text-xs tracking-[0.25em] uppercase font-bold text-gold-700">Oumaima & Hakim</span>
                     </div>
                   </div>
@@ -307,17 +292,27 @@ export default function App() {
                   يُشَرِّفُنَا حُضُورُكُمْ فَالْمَقَامُ لَا يَحْلُو إِلَّا بِكُمْ
                 </h3>
 
-                <p className="font-sans italic text-base text-nude-600 max-w-lg mx-auto leading-relaxed px-4 font-semibold">
-                  “Du fond du cœur, nous vous remercions d'avance pour votre bienveillance, vos vœux les plus précieux et votre précieuse présence lors de cette union sacrée.”
-                </p>
+                <div className="space-y-4 max-w-lg mx-auto px-4">
+                  <p className="font-sans italic text-base md:text-lg text-nude-700 leading-relaxed font-semibold">
+                    Merci pour votre présence et vos précieuses bénédictions.
+                  </p>
+
+                  <div className="bg-[#FAF7F2] border border-gold-300/60 rounded-2xl py-3.5 px-4 shadow-sm space-y-1">
+                    <p className="font-sans text-sm sm:text-base text-rose-950 font-bold leading-relaxed flex items-center justify-center gap-2">
+                      <span>Nous vous prions de respecter notre souhait : photographies et vidéos interdites. 📵</span>
+                    </p>
+                    <p className="font-amiri text-2xl md:text-3xl text-gold-700 font-bold tracking-wide">
+                      ممنوع التصوير
+                    </p>
+                  </div>
+                </div>
 
                 <div className="flex justify-center py-2">
                   <div className="w-24 h-[2px] bg-gold-400" />
                 </div>
 
                 <p className="font-cinzel text-xs tracking-[0.3em] text-gold-600 uppercase font-bold">
-                  Oumaima & Hakim • Vendredi 1 janvier 2027
-            
+                  Oumaima & Hakim • Vendredi 1er Janvier 2027
                 </p>
               </motion.div>
 
@@ -379,13 +374,7 @@ export default function App() {
 
             </div>
 
-            {/* Decorative Corner Ornaments for absolute bottom corners of the screen */}
-            <div className="absolute bottom-0 left-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-100 transform -rotate-90">
-              <CornerPattern className="w-full h-full" />
-            </div>
-            <div className="absolute bottom-0 right-0 w-24 h-24 md:w-36 md:h-36 pointer-events-none opacity-100 transform rotate-180">
-              <CornerPattern className="w-full h-full" />
-            </div>
+
           </motion.div>
         )}
       </AnimatePresence>
