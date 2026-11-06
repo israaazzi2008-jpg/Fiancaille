@@ -18,9 +18,9 @@ export const FallingSparklesAndHearts: React.FC = () => {
   const [particles, setParticles] = useState<FallingParticle[]>([]);
 
   useEffect(() => {
-    // Generate a beautiful, balanced mixture of 15 slow-falling particles (sparkles and hearts)
-    // for a rich, magical look that remains extremely smooth and lag-free
-    const list: FallingParticle[] = Array.from({ length: 16 }).map((_, i) => {
+    // Generate a calm, elegant mixture of 8 slow-falling particles (sparkles and hearts)
+    // for a rich look that remains 100% lag-free on mobile touch scroll
+    const list: FallingParticle[] = Array.from({ length: 8 }).map((_, i) => {
       const type = i % 2 === 0 ? 'sparkle' : 'heart';
       
       // Warm elegant color palette matching our nude and gold theme
@@ -34,9 +34,9 @@ export const FallingSparklesAndHearts: React.FC = () => {
         id: i,
         type,
         x: Math.random() * 100,
-        size: type === 'sparkle' ? (8 + Math.random() * 8) : (6 + Math.random() * 6),
-        delay: Math.random() * 8, // staggered start
-        duration: 9 + Math.random() * 6, // slow elegant fall
+        size: type === 'sparkle' ? (7 + Math.random() * 7) : (5 + Math.random() * 5),
+        delay: Math.random() * 6, // staggered start
+        duration: 10 + Math.random() * 6, // slow elegant fall
         color,
         rotation: Math.random() * 360,
         drift: -15 + Math.random() * 30, // horizontal swaying
@@ -72,8 +72,8 @@ export const FallingSparklesAndHearts: React.FC = () => {
               delay: p.delay,
               ease: 'linear',
             }}
-            className="absolute"
-            style={{ left: `${p.x}%`, top: 0 }}
+            className="absolute transform-gpu"
+            style={{ left: `${p.x}%`, top: 0, willChange: 'transform' }}
           >
             {p.type === 'sparkle' ? (
               <Sparkles 
