@@ -121,7 +121,7 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-between px-4 md:px-8 py-12 md:py-20 overflow-hidden relative select-none bg-[#280102]">
+    <div className="min-h-screen w-full flex flex-col items-center justify-between px-4 md:px-8 py-12 md:py-20 overflow-hidden relative select-none bg-[#faf6f0]">
       {/* Invisible global SVG gradients for luxurious golden looks */}
       <svg className="absolute w-0 h-0 pointer-events-none">
         <defs>
@@ -161,7 +161,7 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
         </defs>
       </svg>
 
-      {/* Uploaded Background Picture */}
+      {/* Uploaded Background Picture - 100% original with no shadowing, no lighting/eclairs, and no overlays */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img 
           src="/back.jpg" 
@@ -170,38 +170,33 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
           onError={(e) => {
             e.currentTarget.src = "/luxury_sanctuary_backdrop.png";
           }}
-          className="w-full h-full object-cover opacity-85 sm:opacity-90 filter brightness-100 contrast-100"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/35" />
       </div>
 
-      {/* Sophisticated display typography in beige foncé */}
+      {/* Sophisticated display typography in beige foncé - kept in exact position */}
       <motion.div 
         initial={{ opacity: 0, y: -25 }}
         animate={{ opacity: isOpen ? 0 : 1, y: isOpen ? -35 : 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
         className="text-center z-10 space-y-3 max-w-lg mt-2 pointer-events-none"
       >
-        <span className="font-cinzel text-xs md:text-sm tracking-[0.4em] text-[#ebd9c3] font-light block drop-shadow-sm">
+        <span className="font-cinzel text-xs md:text-sm tracking-[0.4em] text-[#6e4e1f] font-light block drop-shadow-sm">
           ✦ INVITATION OFFICIELLE ✦
         </span>
-        <h1 className="font-royal text-5xl md:text-6xl text-[#f5dfa8] tracking-widest font-light drop-shadow-md">
+        <h1 className="font-royal text-5xl md:text-6xl text-[#51390e] tracking-widest font-light drop-shadow-md">
           Oumaima & Hakim
         </h1>
         <div className="pt-1">
-          <EngagementRingsDivider className="w-64 h-12 text-gold-400 mx-auto" />
+          <EngagementRingsDivider className="w-64 h-12 text-[#b88d2f] mx-auto" />
         </div>
       </motion.div>
 
-      {/* Simpler, extremely elegant matte nude envelope */}
-      {/* Sized perfectly to look incredibly high-end and luxurious on all phones */}
+      {/* Simpler, extremely elegant envelope in exact position */}
       <div 
         className="relative w-[78vw] max-w-[420px] aspect-[1.48/1] my-auto z-20 cursor-pointer group" 
         onClick={handleOpenClick}
       >
-        {/* Soft elegant radial glow behind the envelope */}
-        <div className="absolute inset-[-15%] rounded-full bg-radial-glow opacity-25 group-hover:opacity-35 blur-2xl transition-opacity duration-700 pointer-events-none" />
-
         <AnimatePresence>
           {!cardExited && (
             <motion.div
@@ -371,26 +366,10 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
         className="text-center z-30 mb-8 flex flex-col items-center pointer-events-none"
       >
         <div className="flex flex-col items-center max-w-sm sm:max-w-md mx-auto">
-          {/* A small line with elegant gold design above the message */}
-          <div className="w-64 h-8 flex items-center justify-center opacity-100 mb-2">
-            <svg viewBox="0 0 160 20" className="w-full h-full text-[#d4af37]" fill="none" stroke="currentColor">
-              {/* Very fine elegant symmetrical horizontal paths and flourishes */}
-              <path d="M 10,10 C 25,10 35,7 48,10 C 53,11 55,7 57,10" strokeWidth="1.0" strokeLinecap="round" />
-              <path d="M 150,10 C 135,10 125,7 112,10 C 107,11 105,7 103,10" strokeWidth="1.0" strokeLinecap="round" />
-              {/* Refined elegant central flourish loops */}
-              <path d="M 57,10 Q 68,16 80,10 Q 92,16 103,10" strokeWidth="1.0" strokeLinecap="round" />
-              <path d="M 62,10 Q 80,3 98,10" strokeWidth="0.7" opacity="0.6" strokeLinecap="round" />
-              {/* Central Diamond and micro-dots */}
-              <path d="M 80,7.5 L 82.5,10 L 80,12.5 L 77.5,10 Z" fill="#d4af37" stroke="none" />
-              <circle cx="68" cy="10" r="1.2" fill="#d4af37" stroke="none" />
-              <circle cx="92" cy="10" r="1.2" fill="#d4af37" stroke="none" />
-              <circle cx="35" cy="10" r="0.8" fill="#d4af37" stroke="none" />
-              <circle cx="125" cy="10" r="0.8" fill="#d4af37" stroke="none" />
-            </svg>
-          </div>
-
+          {/* Spacing placeholder so the position of the text stays exactly as before with the line removed */}
+          <div className="h-8 mb-2" aria-hidden="true" />
           {/* The main text in elegant calligraphic royal script font in beige foncé */}
-          <p className="font-royal text-3xl sm:text-4xl text-[#ebd9c3] animate-pulse text-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] px-4 leading-relaxed tracking-wide">
+          <p className="font-royal text-3xl sm:text-4xl text-[#51390e] animate-pulse text-center drop-shadow-[0_1px_1.5px_rgba(255,255,255,0.85)] px-4 leading-relaxed tracking-wide">
             Veuillez cliquer sur le sceau doré pour ouvrir...
           </p>
         </div>
