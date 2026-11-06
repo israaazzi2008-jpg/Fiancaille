@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, Heart } from 'lucide-react';
-import { WeddingRingsSvg, IslamicMandala } from './Ornaments';
+import { WeddingRingsSvg, IslamicMandala, EngagementRingsDivider } from './Ornaments';
 
 const GoldenLeafCorner = ({ className, sizeClasses = "w-20 h-32 sm:w-24 sm:h-40 md:w-32 md:h-52" }: { className?: string; sizeClasses?: string }) => (
   <svg className={`absolute pointer-events-none z-40 ${sizeClasses} ${className}`} viewBox="0 0 100 160" fill="none">
@@ -121,7 +121,7 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-between px-4 md:px-8 py-12 md:py-20 overflow-hidden relative select-none bg-[#b39572]">
+    <div className="min-h-screen w-full flex flex-col items-center justify-between px-4 md:px-8 py-12 md:py-20 overflow-hidden relative select-none bg-[#280102]">
       {/* Invisible global SVG gradients for luxurious golden looks */}
       <svg className="absolute w-0 h-0 pointer-events-none">
         <defs>
@@ -142,44 +142,55 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             <stop offset="100%" stopColor="#634811" />
           </linearGradient>
           <linearGradient id="waxMaroneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#6e0f12" />
-            <stop offset="35%" stopColor="#4f0507" />
-            <stop offset="70%" stopColor="#360102" />
-            <stop offset="100%" stopColor="#1c0001" />
+            <stop offset="0%" stopColor="#480306" />
+            <stop offset="35%" stopColor="#380204" />
+            <stop offset="70%" stopColor="#250001" />
+            <stop offset="100%" stopColor="#0d0000" />
           </linearGradient>
           <linearGradient id="waxMaroneDark" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#420204" />
-            <stop offset="50%" stopColor="#2c0001" />
-            <stop offset="100%" stopColor="#140000" />
+            <stop offset="0%" stopColor="#280102" />
+            <stop offset="50%" stopColor="#1d0001" />
+            <stop offset="100%" stopColor="#0d0000" />
           </linearGradient>
           <radialGradient id="waxMaroneHighlights" cx="35%" cy="35%" r="65%">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.35" />
             <stop offset="30%" stopColor="#ffa0a2" stopOpacity="0.12" />
-            <stop offset="70%" stopColor="#4f0507" stopOpacity="0" />
-            <stop offset="100%" stopColor="#0f0000" stopOpacity="0.85" />
+            <stop offset="70%" stopColor="#380204" opacity="0" />
+            <stop offset="100%" stopColor="#0d0000" stopOpacity="0.85" />
           </radialGradient>
         </defs>
       </svg>
 
-      {/* Luxurious artistic backdrop - Luminous cool beige up, warm gold-caramel down */}
-      <div className="absolute inset-0 bg-[#EFECE7] z-0 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#EFECE7] via-[#E2D9C8] to-[#BBA07A] opacity-100 z-0 pointer-events-none" />
-      <div className="absolute inset-0 bg-fine-lines opacity-[0.08] z-0 pointer-events-none" />
+      {/* Uploaded Background Picture */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img 
+          src="/assets/aistudio/back_57405b33.jpg" 
+          alt="Introduction Background" 
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            e.currentTarget.src = "/luxury_sanctuary_backdrop.png";
+          }}
+          className="w-full h-full object-cover opacity-85 sm:opacity-90 filter brightness-100 contrast-100"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/15 to-black/35" />
+      </div>
 
-      {/* Sophisticated display typography */}
+      {/* Sophisticated display typography in beige foncé */}
       <motion.div 
         initial={{ opacity: 0, y: -25 }}
         animate={{ opacity: isOpen ? 0 : 1, y: isOpen ? -35 : 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="text-center z-10 space-y-4 max-w-lg mt-2 pointer-events-none"
+        className="text-center z-10 space-y-3 max-w-lg mt-2 pointer-events-none"
       >
-        <span className="font-cinzel text-xs md:text-sm tracking-[0.4em] text-gold-600 font-extrabold block">
+        <span className="font-cinzel text-xs md:text-sm tracking-[0.4em] text-[#ebd9c3] font-light block drop-shadow-sm">
           ✦ INVITATION OFFICIELLE ✦
         </span>
-        <h1 className="font-royal text-4xl md:text-5xl text-gold-700 tracking-widest font-black drop-shadow-sm">
+        <h1 className="font-royal text-5xl md:text-6xl text-[#f5dfa8] tracking-widest font-light drop-shadow-md">
           Oumaima & Hakim
         </h1>
-        <div className="w-32 h-[1.5px] bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mt-1" />
+        <div className="pt-1">
+          <EngagementRingsDivider className="w-64 h-12 text-gold-400 mx-auto" />
+        </div>
       </motion.div>
 
       {/* Simpler, extremely elegant matte nude envelope */}
@@ -199,17 +210,10 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
               className="relative w-full h-full transform-gpu"
               style={{ willChange: 'transform' }}
             >
-              {/* Exquisite hand-drawn Golden Leaf Corners accentuating the top corners */}
-              <GoldenLeafCorner className="top-1 right-1" sizeClasses="w-16 h-26 sm:w-20 sm:h-32 md:w-22 md:h-35" />
-              <GoldenLeafCorner className="top-1 left-1 transform scale-x-[-1]" sizeClasses="w-16 h-26 sm:w-20 sm:h-32 md:w-22 md:h-35" />
-
-              {/* Inside Backing Layer of the envelope: Warm Sand Nude */}
-              <div className="absolute inset-0 bg-[#eddcc6] border border-[#d6c4ae] rounded-xl shadow-[0_20px_50px_rgba(152,126,95,0.15)] overflow-hidden flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-b from-[#eddcc6] via-[#e5d5be] to-[#d6c4ae]" />
-                <div className="absolute inset-0 bg-islamic-pattern opacity-8 mix-blend-overlay" />
-                <div className="w-20 h-20 opacity-[0.08]">
-                  <IslamicMandala className="w-full h-full text-gold-950" />
-                </div>
+              {/* Inside Backing Layer of the envelope: Bordeaux Foncé */}
+              <div className="absolute inset-0 bg-[#480306] border border-[#d4af37] rounded-xl shadow-[0_20px_50px_rgba(37,1,2,0.5)] overflow-hidden flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#480306] via-[#380204] to-[#250001]" />
+                <div className="absolute inset-0 bg-islamic-pattern opacity-5 mix-blend-overlay" />
               </div>
 
               {/* Folding Top Flap: Optimized to use ultra-smooth 2D scaleY folding to avoid mobile WebKit 3D rendering bugs */}
@@ -222,89 +226,43 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
               >
                 <div className="absolute inset-0">
                   <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="w-full h-full">
-                    {/* Main solid flap shape: Matte Nude Cashmere */}
+                    {/* Main solid flap shape: Bordeaux Foncé without stroke */}
                     <path
                       d="M 0,0 L 50,42 L 100,0 Z"
-                      fill="#ebd9c3"
-                      stroke="#dcc8b1"
-                      strokeWidth="0.3"
-                    />
-                    
-                    {/* Delicate fine gold-line border */}
-                    <path
-                      d="M 3,0 L 50,39 L 97,0"
-                      fill="none"
-                      stroke="url(#luxeGoldGrad)"
-                      strokeWidth="0.35"
+                      fill="#480306"
+                      stroke="none"
                     />
 
-                    {/* Intricate Royal Heart Crest design on the Top Flap: Fades out beautifully during folding */}
-                    <motion.g 
-                      animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                      transform="translate(50, 18) scale(0.15)" 
-                      stroke="url(#luxeGoldGrad)" 
-                      strokeWidth="1.2" 
-                      fill="none"
-                    >
-                      {/* Left side swirly heart path */}
-                      <path d="M -14,-2 C -18,-5 -21,-5 -21,-9 C -21,-14 -17,-16 -14,-20 C -11,-16 -7,-14 -7,-9 C -7,-5 -10,-5 -14,-2 Z" fill="url(#luxeGoldLight)" fillOpacity="0.25" />
-                      
-                      {/* Right side swirly heart path */}
-                      <path d="M 14,-2 C 10,-5 7,-5 7,-9 C 7,-14 11,-16 14,-20 C 17,-16 21,-14 21,-9 C 21,-5 18,-5 14,-2 Z" fill="url(#luxeGoldLight)" fillOpacity="0.25" />
-
-                      {/* Main Center larger gold heart */}
-                      <path d="M 0,6 C -5,2 -10,2 -10,-4 C -10,-10 -4,-13 0,-18 C 4,-13 10,-10 10,-4 C 10,2 5,2 0,6 Z" fill="url(#luxeGoldLight)" strokeWidth="1.5" />
-                      
-                      {/* Small crown decorative dots above hearts */}
-                      <circle cx="0" cy="11" r="1.5" fill="url(#luxeGoldGrad)" />
-                      <circle cx="-6" cy="9" r="1.0" fill="url(#luxeGoldGrad)" />
-                      <circle cx="6" cy="9" r="1.0" fill="url(#luxeGoldGrad)" />
-                      <circle cx="-14" cy="-24" r="1.2" fill="url(#luxeGoldGrad)" />
-                      <circle cx="14" cy="-24" r="1.2" fill="url(#luxeGoldGrad)" />
-                      <circle cx="0" cy="-23" r="1.5" fill="url(#luxeGoldGrad)" />
-                    </motion.g>
-
-                    {/* Minimal seal point embellishment */}
-                    <circle cx="50" cy="35" r="1.0" fill="url(#luxeGoldGrad)" />
+                    {/* Minimal seal point embellishment removed */}
                   </svg>
                 </div>
               </motion.div>
 
-              {/* Front static Pocket constructed with elegant matte nude flaps and thin gold accents */}
+              {/* Front static Pocket constructed with bordeaux foncé flaps and gold accents */}
               <div className="absolute inset-0 z-20 pointer-events-none">
                 <svg viewBox="0 0 100 50" preserveAspectRatio="none" className="w-full h-full">
-                  {/* Left Diagonal Flap: Matte Nude */}
+                  {/* Left Diagonal Flap */}
                   <path
                     d="M 0,0 L 50,25 L 0,50 Z"
-                    fill="#ebd9c3"
-                    stroke="#dcc8b1"
+                    fill="#380204"
+                    stroke="#d4af37"
                     strokeWidth="0.3"
                   />
                   
-                  {/* Right Diagonal Flap: Matte Nude */}
+                  {/* Right Diagonal Flap */}
                   <path
                     d="M 100,0 L 50,25 L 100,50 Z"
-                    fill="#ebd9c3"
-                    stroke="#dcc8b1"
+                    fill="#380204"
+                    stroke="#d4af37"
                     strokeWidth="0.3"
                   />
                   
-                  {/* Bottom Triangle Flap: Lighter Nude for beautiful subtle depth */}
+                  {/* Bottom Triangle Flap */}
                   <path
                     d="M 0,50 L 50,24 L 100,50 Z"
-                    fill="#eedcc7"
-                    stroke="#dcc8b1"
+                    fill="#2c0102"
+                    stroke="#d4af37"
                     strokeWidth="0.3"
-                  />
-
-                  {/* Elegant inner gold border along the bottom flap edge */}
-                  <path
-                    d="M 3,50 L 50,26 L 97,50"
-                    fill="none"
-                    stroke="url(#luxeGoldLight)"
-                    strokeWidth="0.2"
-                    strokeDasharray="1.5,1.5"
                   />
 
                   {/* High-end gold botanical leaf illustrations in ALL FOUR CORNERS */}
@@ -380,24 +338,24 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                 style={{ willChange: 'transform, opacity' }}
                 className="absolute top-[46%] left-[50%] -translate-x-[50%] -translate-y-[46%] z-30 flex items-center justify-center transform-gpu"
               >
-                {/* Minimalist Maroon Wax Seal Button */}
+                {/* Golden Wax Seal Button */}
                 <motion.button
                   whileHover={{ scale: 1.08, y: -0.5 }}
                   whileTap={{ scale: 0.94 }}
                   onClick={handleOpenClick}
-                  className="relative w-12 h-12 flex items-center justify-center pointer-events-auto group z-30 cursor-pointer focus:outline-none shadow-[0_4px_12px_rgba(74,44,17,0.35)] rounded-full bg-[#4a2c11] border-2 border-gold-400/70 transform-gpu"
+                  className="relative w-12 h-12 flex items-center justify-center pointer-events-auto group z-30 cursor-pointer focus:outline-none shadow-[0_4px_20px_rgba(212,175,55,0.45)] rounded-full bg-gradient-to-br from-[#f5dfa8] via-[#d4af37] to-[#aa7c11] border-2 border-[#fff2d4] transform-gpu"
                   aria-label="Ouvrir l'invitation"
                 >
                   {/* Centered Embossed Monogram content overlay */}
                   <div className="relative z-10 flex flex-col items-center justify-center text-center select-none">
                     {/* Elegant Embossed Wedding Rings - beautifully centered and sized */}
-                    <div className="scale-95 opacity-90 transition-transform duration-300 group-hover:scale-100">
-                      <WeddingRingsSvg className="w-5 h-5 text-gold-200/90" />
+                    <div className="scale-95 opacity-90 transition-transform duration-300 group-hover:scale-100 text-[#420204]">
+                      <WeddingRingsSvg className="w-5 h-5 text-[#5c090c]" />
                     </div>
                   </div>
 
                   {/* Gentle shine/shimmer overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-white/5 to-white/15 pointer-events-none rounded-full" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-white/40 to-white/20 pointer-events-none rounded-full" />
                 </motion.button>
               </motion.div>
             </motion.div>
@@ -415,7 +373,7 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
         <div className="flex flex-col items-center max-w-sm sm:max-w-md mx-auto">
           {/* A small line with elegant gold design above the message */}
           <div className="w-64 h-8 flex items-center justify-center opacity-100 mb-2">
-            <svg viewBox="0 0 160 20" className="w-full h-full text-[#b88d2f]" fill="none" stroke="currentColor">
+            <svg viewBox="0 0 160 20" className="w-full h-full text-[#d4af37]" fill="none" stroke="currentColor">
               {/* Very fine elegant symmetrical horizontal paths and flourishes */}
               <path d="M 10,10 C 25,10 35,7 48,10 C 53,11 55,7 57,10" strokeWidth="1.0" strokeLinecap="round" />
               <path d="M 150,10 C 135,10 125,7 112,10 C 107,11 105,7 103,10" strokeWidth="1.0" strokeLinecap="round" />
@@ -423,37 +381,18 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
               <path d="M 57,10 Q 68,16 80,10 Q 92,16 103,10" strokeWidth="1.0" strokeLinecap="round" />
               <path d="M 62,10 Q 80,3 98,10" strokeWidth="0.7" opacity="0.6" strokeLinecap="round" />
               {/* Central Diamond and micro-dots */}
-              <path d="M 80,7.5 L 82.5,10 L 80,12.5 L 77.5,10 Z" fill="#b88d2f" stroke="none" />
-              <circle cx="68" cy="10" r="1.2" fill="#b88d2f" stroke="none" />
-              <circle cx="92" cy="10" r="1.2" fill="#b88d2f" stroke="none" />
-              <circle cx="35" cy="10" r="0.8" fill="#b88d2f" stroke="none" />
-              <circle cx="125" cy="10" r="0.8" fill="#b88d2f" stroke="none" />
+              <path d="M 80,7.5 L 82.5,10 L 80,12.5 L 77.5,10 Z" fill="#d4af37" stroke="none" />
+              <circle cx="68" cy="10" r="1.2" fill="#d4af37" stroke="none" />
+              <circle cx="92" cy="10" r="1.2" fill="#d4af37" stroke="none" />
+              <circle cx="35" cy="10" r="0.8" fill="#d4af37" stroke="none" />
+              <circle cx="125" cy="10" r="0.8" fill="#d4af37" stroke="none" />
             </svg>
           </div>
 
-          {/* The main text in elegant calligraphic royal script font */}
-          <p className="font-royal text-3xl sm:text-4xl text-[#51390e] animate-pulse text-center drop-shadow-[0_0.5px_1.5px_rgba(255,255,255,0.85)] px-4 leading-relaxed tracking-wide">
+          {/* The main text in elegant calligraphic royal script font in beige foncé */}
+          <p className="font-royal text-3xl sm:text-4xl text-[#ebd9c3] animate-pulse text-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] px-4 leading-relaxed tracking-wide">
             Veuillez cliquer sur le sceau doré pour ouvrir...
           </p>
-          
-          {/* Symmetrical fine gold line with a luxurious pulsing heart in the middle */}
-          <div className="w-64 h-10 flex items-center justify-center mt-3 pointer-events-none">
-            <svg viewBox="0 0 160 24" className="w-full h-full text-[#b88d2f]" fill="none" stroke="currentColor">
-              {/* Extremely fine gold elegant curves flanking the center */}
-              <path d="M 15,12 C 32,12 42,9 56,12 C 60,13 62,9 65,12" strokeWidth="0.9" strokeLinecap="round" />
-              <path d="M 145,12 C 128,12 118,9 104,12 C 100,13 98,9 95,12" strokeWidth="0.9" strokeLinecap="round" />
-              {/* Delicate flourish curves under/over */}
-              <path d="M 45,12 Q 55,16 65,12" strokeWidth="0.7" opacity="0.7" strokeLinecap="round" />
-              <path d="M 115,12 Q 105,16 95,12" strokeWidth="0.7" opacity="0.7" strokeLinecap="round" />
-              {/* Subtle accent beads */}
-              <circle cx="32" cy="12" r="1.0" fill="#b88d2f" stroke="none" />
-              <circle cx="128" cy="12" r="1.0" fill="#b88d2f" stroke="none" />
-              {/* Beautiful glowing crimson heart with gold border in the center */}
-              <g transform="translate(80, 16.5) scale(0.5)" className="animate-pulse">
-                <path d="M 0,10 C -12,2 -18,-2 -18,-11 C -18,-21 -9,-25 0,-15 C 9,-25 18,-21 18,-11 C 18,-2 -12,2 0,10 Z" fill="#991b1b" stroke="#b88d2f" strokeWidth="1.5" />
-              </g>
-            </svg>
-          </div>
         </div>
       </motion.div>
     </div>
