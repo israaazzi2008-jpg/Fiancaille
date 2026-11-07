@@ -204,7 +204,7 @@ export default function App() {
                       onError={(e) => {
                         e.currentTarget.src = "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80";
                       }}
-                      className="w-full h-full object-cover rounded-full scale-115 translate-y-3.5 sm:translate-y-4 md:translate-y-5 group-hover:scale-120 transition-transform duration-700"
+                      className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-700"
                     />
                     
                     {/* Tiny golden sparkles over rings photo */}
