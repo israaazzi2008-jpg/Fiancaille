@@ -44,7 +44,7 @@ export const Countdown: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-xl mx-auto py-10 px-6 text-center relative rounded-3xl overflow-hidden bg-white/92 backdrop-blur-md border-[3px] border-double border-gold-400 shadow-[0_20px_50px_rgba(184,141,47,0.25)]">
+    <div className="w-full max-w-xl mx-auto py-10 px-6 text-center relative rounded-3xl overflow-hidden bg-[#FAF7F2]/95 border-[3px] border-double border-gold-400 shadow-[0_20px_50px_rgba(184,141,47,0.25)]">
       {/* Decorative Traditional Corner Frames inside the Chrono */}
       <div className="absolute top-1 left-1 w-6 h-6 border-t border-l border-gold-400 opacity-60" />
       <div className="absolute top-1 right-1 w-6 h-6 border-t border-r border-gold-400 opacity-60" />
