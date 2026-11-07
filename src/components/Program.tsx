@@ -30,7 +30,7 @@ const programEvents: EventItem[] = [
   },
   {
     time: '17:30',
-    title: 'L\'Entrée Solennelle d\'Oumaima & Hakim',
+    title: 'L\'Entrée Solennelle d\'Oumaima & Abdel Hakim',
     description: 'Entrée triomphale de notre couple sous des mélodies majestueuses, suivie de l\'échange de nos magnifiques alliances.',
     icon: <Heart className="w-5 h-5 text-gold-500 fill-gold-200/50" />,
   },
@@ -43,6 +43,8 @@ const programEvents: EventItem[] = [
 ];
 
 export const Program: React.FC = () => {
+  const [bgImage, setBgImage] = React.useState('/luxury_sanctuary_backdrop.png');
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -78,21 +80,40 @@ export const Program: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-12 px-4">
-      <div className="text-center mb-12">
-        <span className="font-cinzel text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold block">
-          Le Déroulement du Jour J
-        </span>
-        <h3 className="font-serif text-3xl md:text-4xl text-nude-900 font-bold mt-2">
-          Le Programme de la Fête
-        </h3>
-        <p className="font-sans italic text-sm text-nude-500 mt-2 max-w-sm mx-auto">
-          Découvrez la chronologie de cette journée mémorable célébrant l'amour et l'harmonie.
-        </p>
+    <div className="w-full max-w-4xl mx-auto py-12 px-4 relative rounded-3xl overflow-hidden">
+      {/* Background Picture with Fallback & Soft Gradient Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src={bgImage}
+          alt="Programme Background"
+          referrerPolicy="no-referrer"
+          onError={() => {
+            if (bgImage.endsWith('.png')) {
+              setBgImage('/luxury_hotel.jpg');
+            } else {
+              setBgImage("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80");
+            }
+          }}
+          className="w-full h-full object-cover opacity-25 filter brightness-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF7F2]/95 via-[#FAF7F2]/90 to-[#FAF7F2]/95" />
       </div>
 
-      {/* Main Timeline Wrapper */}
-      <div className="relative">
+      <div className="relative z-10">
+        <div className="text-center mb-12">
+          <span className="font-cinzel text-xs uppercase tracking-[0.25em] text-[#6e4e1f] font-semibold block">
+            Le Déroulement du Jour J
+          </span>
+          <h3 className="font-serif text-3xl md:text-4xl text-[#51390e] font-bold mt-2">
+            Le Programme de la Fête
+          </h3>
+          <p className="font-sans italic text-sm text-[#51390e] mt-2 max-w-sm mx-auto font-medium">
+            Découvrez la chronologie de cette journée mémorable célébrant l'amour et l'harmonie.
+          </p>
+        </div>
+
+        {/* Main Timeline Wrapper */}
+        <div className="relative">
         {/* Center Vertical Line (Desktop only) */}
         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[2px] border-l-2 border-dashed border-gold-400/50" />
 
@@ -163,5 +184,6 @@ export const Program: React.FC = () => {
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 };
