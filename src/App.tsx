@@ -25,29 +25,38 @@ export default function App() {
   const sanctuaryBackdropImg = '/baj.jpg';
 
   return (
-    <div className={`min-h-screen text-nude-900 relative selection:bg-gold-200 selection:text-gold-900 transition-colors duration-1000 ${isOpened ? 'bg-transparent overflow-y-auto scroll-smooth' : 'bg-nude-50 overflow-hidden'}`}>
+    <div className={`min-h-screen text-nude-900 relative selection:bg-gold-200 selection:text-gold-900 ${isOpened ? 'bg-transparent' : 'bg-nude-50 overflow-hidden'}`}>
       {/* Global SVG Gradients Provider */}
       <GoldGradientDefs />
 
-      {/* 100% Original background image with no filters, overlays or corner shadows */}
+      {/* 100% Original background image with GPU composited layer for zero-lag 60fps scrolling */}
       {isOpened && (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
-          className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
+        <div 
+          className="fixed inset-0 z-0 pointer-events-none overflow-hidden transform-gpu"
+          style={{
+            transform: 'translate3d(0, 0, 0)',
+            willChange: 'transform',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden'
+          }}
         >
           <img 
             src={sanctuaryBackdropImg} 
             alt="Scenic Sanctuary Backdrop" 
             referrerPolicy="no-referrer"
+            decoding="async"
             onError={(e) => {
               const img = e.currentTarget;
               img.src = '/baj.jpg';
             }}
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center transform-gpu"
+            style={{
+              transform: 'translate3d(0, 0, 0)',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden'
+            }}
           />
-        </motion.div>
+        </div>
       )}
 
       <AnimatePresence mode="wait">
@@ -116,8 +125,8 @@ export default function App() {
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.3, duration: 1 }}
-                    className="text-2xl md:text-3xl tracking-normal text-gold-gradient font-amiri font-normal" 
-                    style={{ textShadow: '0 1px 3px rgba(184, 141, 47, 0.15)', paddingBottom: '7px', paddingTop: '-4px', marginTop: '-4px' }}
+                    className="text-2xl md:text-3xl tracking-normal text-[#51390e] font-amiri font-normal" 
+                    style={{ textShadow: '0 1px 2px rgba(255, 255, 255, 0.7)', paddingBottom: '7px', paddingTop: '-4px', marginTop: '-4px' }}
                   >
                     بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
                   </motion.h1>
@@ -140,18 +149,18 @@ export default function App() {
                   <EngagementRingsDivider className="w-80 h-16 relative z-10" />
                 </div>
 
-                <span className="font-cinzel text-xs md:text-sm uppercase tracking-[0.3em] text-gold-600 font-bold block drop-shadow-sm">
+                <span className="font-cinzel text-xs md:text-sm uppercase tracking-[0.3em] text-[#6e4e1f] font-bold block drop-shadow-sm">
                   CÉLÉBRATION DE L'ENGAGEMENT
                 </span>
 
-                {/* Grand Calligraphy Names with Gold foil gradients & staggered slide animation */}
+                {/* Grand Calligraphy Names in Beige Foncé matching Envelope Page */}
                 <div className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-4 py-2">
                   <motion.h2 
                     initial={{ x: -60, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4, duration: 1.2, type: 'spring' }}
-                    className="font-royal text-6xl md:text-8xl text-nude-950 font-normal tracking-wide text-gold-gradient py-2"
+                    className="font-royal text-6xl md:text-8xl text-[#51390e] font-normal tracking-wide drop-shadow-md py-2"
                   >
                     Oumaima
                   </motion.h2>
@@ -160,7 +169,7 @@ export default function App() {
                     whileInView={{ rotate: 0, scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.6, duration: 1 }}
-                    className="font-luxury-script text-5xl md:text-6xl text-gold-500 py-1 md:py-0"
+                    className="font-luxury-script text-5xl md:text-6xl text-[#6e4e1f] py-1 md:py-0"
                   >
                     &
                   </motion.span>
@@ -169,9 +178,9 @@ export default function App() {
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4, duration: 1.2, type: 'spring' }}
-                    className="font-royal text-6xl md:text-8xl text-nude-950 font-normal tracking-wide text-gold-gradient py-2"
+                    className="font-royal text-6xl md:text-8xl text-[#51390e] font-normal tracking-wide drop-shadow-md py-2"
                   >
-                    Hakim
+                    Abdel Hakim
                   </motion.h2>
                 </div>
 
@@ -190,12 +199,12 @@ export default function App() {
                     <div className="absolute inset-0 border-2 border-gold-300 rounded-full z-10 pointer-events-none" />
                     <img
                       src={ringsImageUrl}
-                      alt="Alliances en Or d'Oumaima & Hakim"
+                      alt="Alliances en Or d'Oumaima & Abdel Hakim"
                       referrerPolicy="no-referrer"
                       onError={(e) => {
                         e.currentTarget.src = "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80";
                       }}
-                      className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover rounded-full scale-115 translate-y-3.5 sm:translate-y-4 md:translate-y-5 group-hover:scale-120 transition-transform duration-700"
                     />
                     
                     {/* Tiny golden sparkles over rings photo */}
@@ -237,7 +246,7 @@ export default function App() {
                     </p>
 
                     <div className="flex items-center justify-center space-x-3 text-gold-600 pt-2">
-                      <span className="font-cinzel text-xs tracking-[0.25em] uppercase font-bold text-gold-700">Oumaima & Hakim</span>
+                      <span className="font-cinzel text-xs tracking-[0.25em] uppercase font-bold text-gold-700">Oumaima & Abdel Hakim</span>
                     </div>
                   </div>
                 </IslamicArchFrame>
@@ -312,7 +321,7 @@ export default function App() {
                 </div>
 
                 <p className="font-cinzel text-xs tracking-[0.3em] text-gold-600 uppercase font-bold">
-                  Oumaima & Hakim • Vendredi 1er Janvier 2027
+                  Oumaima & Abdel Hakim • Vendredi 1er Janvier 2027
                 </p>
               </motion.div>
 
