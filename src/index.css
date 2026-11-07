@@ -58,7 +58,6 @@
       #51390e 100%
     );
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
@@ -87,36 +86,6 @@
                       linear-gradient(90deg, transparent 24%, rgba(184, 141, 47, 0.15) 25%, rgba(184, 141, 47, 0.15) 26%, transparent 27%, transparent);
     background-size: 40px 40px;
   }
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  background-color: #faf8f6;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  color: #46321d;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  touch-action: manipulation;
-  overscroll-behavior-y: none;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Custom scrollbar styled with gold and nude */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #faf8f6;
-}
-::-webkit-scrollbar-thumb {
-  background: #ceb58d;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #be9d6e;
 }
 
 /* Custom animations for particles/birds/sparkles */
@@ -166,6 +135,32 @@ html, body {
   background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #faf8f6;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #46321d;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styled with gold and nude */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #faf8f6;
+}
+::-webkit-scrollbar-thumb {
+  background: #ceb58d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #be9d6e;
 }
 
 @keyframes leaf-fall-tl {
