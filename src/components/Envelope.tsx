@@ -161,14 +161,19 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
         </defs>
       </svg>
 
-      {/* Uploaded Background Picture - 100% original with no shadowing, no lighting/eclairs, and no overlays */}
+      {/* Uploaded Background Picture - named baj.jpg */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img 
-          src="/back.jpg" 
+          src="/baj.jpg" 
           alt="Introduction Background" 
           referrerPolicy="no-referrer"
           onError={(e) => {
-            e.currentTarget.src = "/luxury_sanctuary_backdrop.png";
+            const img = e.currentTarget;
+            if (img.getAttribute('src') !== '/back.jpg') {
+              img.src = '/back.jpg';
+            } else {
+              img.src = '/luxury_sanctuary_backdrop.png';
+            }
           }}
           className="w-full h-full object-cover object-center"
         />
@@ -185,7 +190,7 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
           ✦ INVITATION OFFICIELLE ✦
         </span>
         <h1 className="font-royal text-5xl md:text-6xl text-[#51390e] tracking-widest font-light drop-shadow-md">
-          Oumaima & Hakim
+          Oumaima & Abdel Hakim
         </h1>
         <div className="pt-1">
           <EngagementRingsDivider className="w-64 h-12 text-[#b88d2f] mx-auto" />
