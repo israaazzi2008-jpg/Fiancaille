@@ -7,8 +7,7 @@ export const HotelLocation: React.FC = () => {
   const [pic2, setPic2] = useState('/hotel_pic_2.jpg');
   const [pic3, setPic3] = useState('/hotel_pic_3.jpg');
   const [pic4, setPic4] = useState('/hotel_pic_4.jpg');
-
-  const hotelPics = [pic1, pic2, pic3, pic4];
+const hotelPics = [pic1, pic2, pic3, pic4];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Automatic transition every 4 seconds
@@ -22,18 +21,18 @@ export const HotelLocation: React.FC = () => {
   return (
     <div className="w-full max-w-3xl mx-auto py-12 px-4">
       <div className="text-center mb-10">
-        <span className="font-cinzel text-xs uppercase tracking-[0.25em] text-gold-600 font-semibold">
+        <span className="font-cinzel text-xs uppercase tracking-[0.25em] text-[#6e4e1f] font-semibold">
           Le Lieu de Célébration
         </span>
-        <h3 className="font-serif text-3xl text-nude-900 font-bold mt-2">
+        <h3 className="font-serif text-3xl text-[#51390e] font-bold mt-2">
           Le Palace d'Exception
         </h3>
-        <p className="font-sans italic text-sm text-nude-500 mt-2 max-w-md mx-auto">
+        <p className="font-sans italic text-sm text-[#51390e] mt-2 max-w-md mx-auto font-medium">
           C'est dans un cadre féerique et raffiné que nous aurons le bonheur de vous accueillir pour fêter nos fiançailles.
         </p>
       </div>
 
-      <div className="bg-white/80 backdrop-blur-md rounded-3xl border border-gold-300/30 overflow-hidden shadow-xl grid grid-cols-1 md:grid-cols-12 gap-0">
+      <div className="bg-[#FAF7F2]/95 rounded-3xl border border-gold-300/40 overflow-hidden shadow-xl grid grid-cols-1 md:grid-cols-12 gap-0">
         {/* Left Side: Venue Image Slideshow */}
         <div className="md:col-span-5 h-[280px] md:h-full min-h-[280px] relative overflow-hidden group">
           {hotelPics.map((picUrl, idx) => (
@@ -98,7 +97,7 @@ export const HotelLocation: React.FC = () => {
             <div className="space-y-2.5 border-t border-b border-nude-200 py-4 mb-6">
               <div className="flex items-center text-sm text-nude-600 space-x-3">
                 <Calendar className="w-4 h-4 text-gold-500" />
-                <span>vendredi, 1 janvier 2027 à partir de 13:00</span>
+                <span>Vendredi, 1er Janvier 2027 à partir de 13:00</span>
               </div>
             </div>
           </div>
@@ -137,6 +136,16 @@ export const HotelLocation: React.FC = () => {
                 <span>Naviguer</span>
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+         
+   
           </div>
         </div>
       </div>
